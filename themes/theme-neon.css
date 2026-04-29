@@ -1,0 +1,182 @@
+/* ==========================================================
+   THEME: Neon  ·  Near-black, electric cyan, glowing edges
+   Personality: tech, futuristic, hacker aesthetic, bold
+   Font: JetBrains Mono (code/terminal monospace)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    --accent:                  #00f5d4;
+    --ink:                     #e0f7f4;
+    --border-radius:           4px;
+
+    --font-heading:            'JetBrains Mono', monospace;
+    --font-body:               'JetBrains Mono', monospace;
+
+    --r-background-color:      #0e0e12;
+    --r-main-color:            #e0f7f4;
+    --r-heading-color:         #00f5d4;
+    --r-link-color:            #00f5d4;
+
+    --heading-color:           #00f5d4;
+    --heading-bg:              transparent;
+    --heading-shadow:          0 0 12px rgba(0, 245, 212, 0.45);
+    --heading-letter-spacing:  -0.02em;
+
+    --box-border-radius:       4px;
+    --box-shadow:              0 0 12px rgba(0, 245, 212, 0.12);
+
+    --box-info-bg:             #0c1b1a;
+    --box-info-border:         #00f5d4;
+    --box-warning-bg:          #1a1700;
+    --box-warning-border:      #ffc828;
+    --box-danger-bg:           #1a0c0c;
+    --box-danger-border:       #ff5050;
+    --box-success-bg:          #0c1a0e;
+    --box-success-border:      #32e678;
+
+    --table-header-bg:         #0e1c1b;
+    --table-header-border:     #00f5d4;
+
+    --outline-highlight-color: #00f5d4;
+    --outline-highlight-bg:    #0d2421;
+
+    --cite-color:              #7bbab5;
+
+    --span-red:                #ff5050;
+    --span-yellow:             #ffc828;
+    --span-green:              #32e678;
+    --span-blue:               #4fc3f7;
+    --inline-code-bg:          #0e1c1b;
+    --inline-code-border:      #1e4d47;
+    --inline-code-color:       #00f5d4;
+    --tabs-inactive-bg:        #10201e;
+    --tabs-inactive-color:     #e0f7f4;
+    --tabs-active-bg:          #00f5d4;
+    --tabs-active-color:       #0e0e12;
+}
+
+body, .reveal-viewport { background-color: #0e0e12; }
+body {
+    background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(0, 245, 212, 0.012) 3px, rgba(0, 245, 212, 0.012) 4px
+    );
+    color: var(--ink);
+}
+
+.reveal, .reveal section, .reveal .slides section { color: var(--ink); }
+
+.reveal h1, .reveal h2, .reveal h3 {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #1e4d47;
+    border-radius: 0;
+    text-align: left;
+    padding: 10px 0;
+    font-weight: 700;
+    text-shadow: 0 0 14px rgba(0, 245, 212, 0.55), 0 0 30px rgba(0, 245, 212, 0.2);
+    box-shadow: none;
+}
+.reveal h1 { border-bottom: 2px solid #1e4d47; }
+
+.reveal .slide-number { color: #00f5d4; background: transparent; }
+
+.box-info    { box-shadow: 0 0 10px rgba(0, 245, 212, 0.12); }
+.box-warning { box-shadow: 0 0 10px rgba(255, 200, 40, 0.12); }
+.box-danger  { box-shadow: 0 0 10px rgba(255, 80, 80, 0.12); }
+.box-success { box-shadow: 0 0 10px rgba(50, 230, 120, 0.12); }
+
+.reveal section p, .reveal section li { line-height: 1.55; margin-bottom: 0.3em; }
+
+.reveal code {
+    background: #0e1c1b;
+    border: 1px solid #1e4d47;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: #00f5d4;
+}
+
+.reveal th {
+    background-color: var(--table-header-bg);
+    color: #00f5d4;
+    border-bottom: 1px solid var(--table-header-border);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+}
+.reveal td { border-bottom: 1px solid #1e3432; color: var(--ink); }
+
+.reveal .text-highlight { background-color: #fff59d; color: #241d00; text-shadow: none; }
+
+.reveal tr.row-highlight, .reveal tr.row-highlight td { background-color: #14311b; }
+
+.reveal a { color: #00f5d4; text-decoration: none; border-bottom: 1px dashed #1e6b63; }
+.reveal a:hover { text-shadow: 0 0 8px rgba(0, 245, 212, 0.8); }
+
+.outline-highlight {
+    background: var(--outline-highlight-bg);
+    color: var(--outline-highlight-color);
+    text-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+    padding: 2px 10px;
+    border-radius: 3px;
+}
+
+.reveal .cite { color: var(--cite-color); }
+.placeholder-img { border-color: #1e4d47; background: #0f1f1e; color: var(--cite-color); }
+
+/* ---- Code blocks — dark background to match theme ---- */
+.reveal pre {
+    background: #0a0e11;
+    border: 1px solid #1e4d47;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.06);
+}
+.reveal pre code {
+    background: transparent;
+    border: none;
+    color: #e0f7f4;
+}
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:          #00f5d4;
+    background:     #10201e;
+    border:         1px solid #1e4d47;
+    border-radius:  4px;
+    padding:        20px 30px;
+    box-shadow:     0 0 20px rgba(0, 245, 212, 0.18), inset 0 0 30px rgba(0, 245, 212, 0.03);
+    text-shadow:    0 0 18px rgba(0, 245, 212, 0.7), 0 0 40px rgba(0, 245, 212, 0.3);
+    letter-spacing: -0.02em;
+    text-align:     left;
+    width:          100%;
+    margin-left:    0;
+    font-weight:    700;
+}
+
+.reveal .key-question {
+    border-left:   none;
+    border:        1px solid #1e4d47;
+    background:    #10201e;
+    color:         #00f5d4;
+    text-shadow:   0 0 12px rgba(0, 245, 212, 0.4);
+    border-radius: 4px;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide {
+    background: #0e0e12;
+}
+.reveal .orz-title-slide .orz-title-meta {
+    border-top-color: #1e4d47;
+}
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: #10201e;
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+    text-shadow: 0 0 14px rgba(0, 245, 212, 0.55);
+}
+.reveal .orz-section-slide .orz-section-stripe { background: var(--accent); }

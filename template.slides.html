@@ -1,0 +1,3167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORZ Slides — Feature Template</title>
+
+    <!-- ═══ LIBRARY STYLES ═══════════════════════════════════════════════════ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/simple.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+        id="hljs-theme">
+
+    <!-- ═══ PRESENTATION THEME ═══════════════════════════════════════════════
+     Change href to switch themes:
+       themes/theme-paper.css      Warm serif, book-like
+       themes/theme-architect.css  Blueprint grid, monospace
+       themes/theme-executive.css  Dark navy + gold, professional
+       themes/theme-sage.css       Ivory + sage green, casual
+       themes/theme-poppy.css      Cream + coral, playful
+       themes/theme-neon.css       Near-black + cyan, futuristic
+       themes/theme-chalk.css      Blackboard green + chalk white
+════════════════════════════════════════════════════════════════════════ -->
+    <style id="presentation-theme" data-theme="executive">
+        /* ==========================================================
+   THEME: Executive  ·  Dark navy, gold accents, authoritative
+   Personality: professional, confident, boardroom-ready
+   Font: Barlow (clean condensed professional sans)
+   ========================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+
+        :root {
+            --accent: #c9a84c;
+            --ink: #12202e;
+            --border-radius: 3px;
+
+            --font-heading: 'Barlow', 'Segoe UI', sans-serif;
+            --font-body: 'Barlow', 'Segoe UI', sans-serif;
+
+            --heading-color: #12202e;
+            --heading-bg: transparent;
+            --heading-shadow: none;
+            --heading-letter-spacing: -0.01em;
+
+            --box-border-radius: 3px;
+            --box-border-width: 4px;
+            --box-shadow: 2px 3px 6px rgba(18, 32, 46, 0.14);
+
+            --box-info-bg: #f0f4fa;
+            --box-info-border: #2b6cb0;
+            --box-warning-bg: #fdf6e4;
+            --box-warning-border: #c9a84c;
+            --box-danger-bg: #fdf0f0;
+            --box-danger-border: #c0392b;
+            --box-success-bg: #f0faf4;
+            --box-success-border: #27ae60;
+
+            --table-header-bg: #12202e;
+            --table-header-border: #c9a84c;
+
+            --outline-highlight-color: #12202e;
+            --outline-highlight-bg: #c9a84c;
+
+            --cite-color: #8a9bb0;
+
+            --span-red: #c0392b;
+            --span-yellow: #a07b00;
+            --span-green: #1e6b3c;
+            --span-blue: #1a4a7a;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--ink);
+        }
+
+        .reveal .slide-number {
+            color: var(--accent);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            border-top: 2px solid #12202e;
+            border-bottom: 3px solid #c9a84c;
+            border-radius: 0;
+            padding: 10px 0 10px 20px;
+            box-shadow: none;
+        }
+
+        .box-info {
+            background: var(--box-info-bg);
+        }
+
+        .box-warning {
+            background: var(--box-warning-bg);
+        }
+
+        .box-danger {
+            background: var(--box-danger-bg);
+        }
+
+        .box-success {
+            background: var(--box-success-bg);
+        }
+
+        .reveal th {
+            background-color: var(--table-header-bg);
+            color: #ffffff;
+            border-bottom: 2px solid var(--table-header-border);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.75em;
+        }
+
+        .reveal td {
+            border-bottom: 1px solid #dde3ec;
+        }
+
+        .reveal code {
+            background: #f4f5f8;
+            border: 1px solid #dde3ec;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #12202e;
+        }
+
+        /* ---- Title heading ---- */
+        .reveal .title-heading {
+            color: var(--ink);
+            border-top: 3px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
+            border-left: none;
+            border-right: none;
+            padding: 20px 0;
+            background: transparent;
+            box-shadow: none;
+            letter-spacing: -0.02em;
+            text-align: left;
+            width: 100%;
+            margin-left: 0;
+            font-weight: 700;
+        }
+
+        /* ---- Presentation title slide ---- */
+        .reveal .orz-title-slide {
+            background: #ffffff;
+        }
+
+        /* ---- Section title slide ---- */
+        .reveal .orz-section-slide .orz-section-band {
+            background: var(--ink);
+            color: var(--accent);
+        }
+
+        .reveal .orz-section-slide .orz-section-stripe {
+            background: var(--accent);
+        }
+    </style>
+    <!-- ═══ BASE STYLES ══════════════════════════════════════════════════════ -->
+    <style id="base-styles">
+        /* ──────────────────────────────────────────────────────────────────────
+   BASE.CSS — structural & layout styles shared across ALL themes.
+   Themes supply only CSS custom properties and decorative overrides.
+   ────────────────────────────────────────────────────────────────────── */
+
+        /* ── Heading structure ─────────────────────────────────────────────── */
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            text-transform: none;
+            font-family: var(--font-heading, 'Segoe UI', sans-serif);
+            font-weight: 600;
+            color: var(--heading-color, var(--r-heading-color));
+            letter-spacing: var(--heading-letter-spacing, 0);
+            background: var(--heading-bg, var(--accent));
+            padding: 12px 28px;
+            border-radius: var(--border-radius, 8px);
+            display: block;
+            box-sizing: border-box;
+            width: calc(100% - 40px);
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 24px;
+            font-size: 90%;
+            text-align: center;
+            box-shadow: var(--heading-shadow, 0 4px 6px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Title-page heading — overrides shared heading bar */
+        .reveal .title-heading {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: none;
+            padding: 0;
+            width: auto;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            display: block;
+            border-bottom: none;
+        }
+
+        /* Headings inside colored boxes */
+        .box-info h3,
+        .box-info h4,
+        .box-warning h3,
+        .box-warning h4,
+        .box-danger h3,
+        .box-danger h4,
+        .box-success h3,
+        .box-success h4 {
+            margin-top: 0;
+            font-size: 1.1em;
+            background: transparent !important;
+            color: inherit !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            width: auto !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            text-align: left;
+            margin-bottom: 8px;
+            letter-spacing: 0 !important;
+            border-bottom: none !important;
+        }
+
+        /* ── Slide number ──────────────────────────────────────────────────── */
+        .reveal .slide-number {
+            font-size: 18px;
+            color: var(--cite-color, #666);
+            background-color: transparent;
+        }
+
+        /* ── Body text ─────────────────────────────────────────────────────── */
+        .reveal,
+        .reveal section {
+            font-family: var(--font-body, 'Segoe UI', sans-serif);
+        }
+
+        .reveal .markdown-body {
+            width: 100%;
+            color: inherit;
+            background: transparent;
+            font: inherit;
+        }
+
+        .reveal .markdown-body>:first-child {
+            margin-top: 0;
+        }
+
+        .reveal .markdown-body>:last-child {
+            margin-bottom: 0;
+        }
+
+        .reveal section p,
+        .reveal section li {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .reveal ul,
+        .reveal ol {
+            display: block;
+            text-align: left;
+            margin-left: 5%;
+            margin-right: 5%;
+            padding-left: 1.5em;
+        }
+
+        .reveal li {
+            margin-bottom: 10px;
+        }
+
+        /* ── Graphic element centering ─────────────────────────────────────── */
+        .reveal section img,
+        .reveal section [data-smiles],
+        .reveal .mermaid,
+        .reveal .youtube-embed {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .reveal section svg[data-smiles],
+        .reveal section canvas[data-smiles],
+        .reveal section img[data-smiles] {
+            width: auto;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .reveal .smiles-render {
+            display: flex;
+            justify-content: center;
+        }
+
+        .reveal .mermaid,
+        .reveal .youtube-embed {
+            width: 100%;
+        }
+
+        .reveal .mermaid svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+
+        /* ── Image overflow ────────────────────────────────────────────────── */
+        .reveal section img {
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .reveal .youtube-embed {
+            aspect-ratio: 16 / 9;
+        }
+
+        .reveal .youtube-embed iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ── Code ──────────────────────────────────────────────────────────── */
+        .reveal code {
+            background: var(--inline-code-bg, #f5f5f5);
+            border: 1px solid var(--inline-code-border, #ddd);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.88em;
+            color: var(--inline-code-color, inherit);
+        }
+
+        /* Higher-specificity rule to override Reveal's built-in theme CSS */
+        .reveal :not(pre)>code {
+            background: var(--inline-code-bg, #f5f5f5);
+            border-color: var(--inline-code-border, #ddd);
+            color: var(--inline-code-color, inherit);
+        }
+
+        /* ── Heading size scale ────────────────────────────────────────────── */
+        .reveal h1 {
+            font-size: 1.8em;
+        }
+
+        .reveal h2 {
+            font-size: 1.4em;
+        }
+
+        /* ── Layout fixes for center:false ────────────────────────────────── */
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides section {
+            padding: 0;
+            height: 100%;
+        }
+
+        .reveal .slides section h2:first-child,
+        .reveal .slides section h3:first-child {
+            margin-top: 20px;
+            margin-bottom: 36px;
+        }
+
+        .reveal .slides section>ul,
+        .reveal .slides section>ol,
+        .reveal .slides section>p {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        /* ── Tables ────────────────────────────────────────────────────────── */
+        .reveal table {
+            width: 100%;
+            font-size: 0.8em;
+            border-collapse: collapse;
+        }
+
+        .reveal th {
+            background-color: var(--table-header-bg);
+            border-bottom: 2px solid var(--table-header-border);
+            padding: 10px;
+        }
+
+        .reveal td {
+            border-bottom: 1px solid #dfe4ea;
+            padding: 10px;
+        }
+
+        /* ── Static layout helpers ─────────────────────────────────────────── */
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .two-col>div {
+            flex: 1;
+        }
+
+        .three-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .three-col>div {
+            flex: 1;
+        }
+
+        .four-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .four-col>div {
+            flex: 1;
+        }
+
+        .col-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .col-1 {
+            flex: 1 !important;
+        }
+
+        .col-2 {
+            flex: 2 !important;
+        }
+
+        .col-3 {
+            flex: 3 !important;
+        }
+
+        .col-4 {
+            flex: 4 !important;
+        }
+
+        .layout-quarters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            height: 74%;
+        }
+
+        .layout-satellite {
+            display: grid;
+            grid-template-areas: ". top ." "left center right" ". bottom .";
+            grid-template-columns: 1fr 1.4fr 1fr;
+            grid-template-rows: 1fr 1.4fr 1fr;
+            gap: 12px;
+            height: 74%;
+        }
+
+        .layout-satellite>.sat-center {
+            grid-area: center;
+        }
+
+        .layout-satellite>.sat-top {
+            grid-area: top;
+        }
+
+        .layout-satellite>.sat-bottom {
+            grid-area: bottom;
+        }
+
+        .layout-satellite>.sat-left {
+            grid-area: left;
+        }
+
+        .layout-satellite>.sat-right {
+            grid-area: right;
+        }
+
+        /* ── Semantic boxes ────────────────────────────────────────────────── */
+        .box-info,
+        .box-warning,
+        .box-danger,
+        .box-success {
+            padding: 14px;
+            border-radius: var(--box-border-radius, 6px);
+            border: 2px solid;
+            text-align: left;
+            box-shadow: var(--box-shadow, 0 2px 5px rgba(0, 0, 0, 0.05));
+        }
+
+        .box-info {
+            background-color: var(--box-info-bg);
+            border-color: var(--box-info-border);
+        }
+
+        .box-warning {
+            background-color: var(--box-warning-bg);
+            border-color: var(--box-warning-border);
+        }
+
+        .box-danger {
+            background-color: var(--box-danger-bg);
+            border-color: var(--box-danger-border);
+        }
+
+        .box-success {
+            background-color: var(--box-success-bg);
+            border-color: var(--box-success-border);
+        }
+
+        .box-info p,
+        .box-warning p,
+        .box-danger p,
+        .box-success p {
+            margin-bottom: 0;
+            font-size: 0.85em;
+        }
+
+        /* ── orz-markdown container aliases ───────────────────────────────── */
+        .reveal .info {
+            background-color: var(--box-info-bg);
+            border: 2px solid var(--box-info-border);
+            padding: 14px;
+            border-radius: var(--box-border-radius, 6px);
+        }
+
+        .reveal .warning {
+            background-color: var(--box-warning-bg);
+            border: 2px solid var(--box-warning-border);
+            padding: 14px;
+            border-radius: var(--box-border-radius, 6px);
+        }
+
+        .reveal .danger {
+            background-color: var(--box-danger-bg);
+            border: 2px solid var(--box-danger-border);
+            padding: 14px;
+            border-radius: var(--box-border-radius, 6px);
+        }
+
+        .reveal .success {
+            background-color: var(--box-success-bg);
+            border: 2px solid var(--box-success-border);
+            padding: 14px;
+            border-radius: var(--box-border-radius, 6px);
+        }
+
+        /* ── orz-md span colors ────────────────────────────────────────────── */
+        .reveal span.red {
+            color: var(--span-red, #c0392b);
+        }
+
+        .reveal span.yellow {
+            color: var(--span-yellow, #9a7615);
+            font-weight: 600;
+        }
+
+        .reveal span.green {
+            color: var(--span-green, #218763);
+        }
+
+        .reveal span.blue {
+            color: var(--span-blue, #1d6db0);
+        }
+
+        .reveal span.success {
+            background: var(--box-success-bg);
+            color: var(--box-success-border);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .reveal span.info {
+            background: var(--box-info-bg);
+            color: var(--box-info-border);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .reveal span.warning {
+            background: var(--box-warning-bg);
+            color: var(--box-warning-border);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .reveal span.danger {
+            background: var(--box-danger-bg);
+            color: var(--box-danger-border);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* ── Spoiler (details/summary) ─────────────────────────────────────── */
+        .reveal details.spoil {
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius, 6px);
+            padding: 8px 14px;
+            margin: 8px 0;
+        }
+
+        .reveal details.spoil>summary {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 4px 0;
+            list-style: none;
+        }
+
+        .reveal details.spoil>summary::before {
+            content: '▶  ';
+            font-size: 0.8em;
+        }
+
+        .reveal details.spoil[open]>summary::before {
+            content: '▼  ';
+        }
+
+        /* ── Tabs ──────────────────────────────────────────────────────────── */
+        .reveal .tabs .tab {
+            display: none;
+        }
+
+        .reveal .tabs .tab.active {
+            display: block;
+        }
+
+        .reveal .tabs:not([data-js]) .tab {
+            display: block;
+        }
+
+        .reveal .tabs-bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .reveal .tabs-bar-btn {
+            padding: 5px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.82em;
+            background: var(--tabs-inactive-bg, transparent);
+            color: var(--tabs-inactive-color, var(--ink, inherit));
+        }
+
+        .reveal .tabs-bar-btn.active {
+            background: var(--tabs-active-bg, var(--accent));
+            color: var(--tabs-active-color, #fff);
+        }
+
+        /* ── Columns (:::: cols) ────────────────────────────────────────────── */
+        .reveal .cols {
+            display: grid;
+            gap: 16px;
+            align-items: start;
+        }
+
+        /* ── QR code ────────────────────────────────────────────────────────── */
+        .reveal span.qrcode {
+            background: #fff;
+            display: inline-block;
+            padding: 4px;
+            cursor: pointer;
+            position: relative;
+            line-height: 0;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+
+        .reveal span.qrcode::after {
+            content: '⤢';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            z-index: 1;
+            font-size: 11px;
+            line-height: 1;
+            color: #333;
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 2px;
+            padding: 1px 3px;
+            pointer-events: none;
+            opacity: 0.75;
+        }
+
+        .reveal span.qrcode:hover::after {
+            opacity: 1;
+        }
+
+        .reveal span.qrcode svg,
+        .reveal span.qrcode canvas,
+        .reveal span.qrcode img {
+            display: block;
+            width: 160px !important;
+            height: 160px !important;
+            max-width: none;
+        }
+
+        /* ── Utility classes ───────────────────────────────────────────────── */
+        .reveal .title-subtitle {
+            font-size: 1em;
+            color: var(--cite-color, #777);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .reveal .title-author {
+            text-align: center;
+            font-size: 0.75em;
+            color: var(--cite-color, #777);
+            padding-bottom: 8px;
+        }
+
+        .text-highlight {
+            background-color: #fff59d;
+            color: #2f2500;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .reveal .text-accent {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .reveal .text-danger {
+            color: var(--box-danger-border);
+            font-weight: bold;
+        }
+
+        .reveal .heading-plain {
+            background: transparent !important;
+            color: inherit;
+            box-shadow: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            border-bottom: none !important;
+        }
+
+        .reveal .cite {
+            color: var(--cite-color, #777);
+            font-size: 0.85em;
+            font-style: italic;
+        }
+
+        .reveal .code-line {
+            font-family: monospace;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 8px 0;
+        }
+
+        .reveal .key-question {
+            text-align: center;
+            font-size: 1.2em;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent);
+            border-left: 5px solid var(--accent);
+            background: rgba(0, 0, 0, 0.03);
+            padding: 14px 32px;
+            margin: 20px auto;
+            width: 75%;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .vcenter {
+            display: flex;
+            align-items: center;
+        }
+
+        .row-highlight {
+            background-color: var(--box-success-bg);
+        }
+
+        .outline-list {
+            font-size: 1.1em;
+            line-height: 1.8;
+            list-style-type: decimal;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-left: 40px;
+        }
+
+        .outline-highlight {
+            color: var(--outline-highlight-color);
+            font-weight: bold;
+            background-color: var(--outline-highlight-bg);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .outline-dim {
+            color: #95a5a6;
+        }
+
+        .placeholder-img {
+            border: 3px dashed #bdc3c7;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            color: #7f8c8d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-style: italic;
+            font-size: 0.8em;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 14px;
+            left: 36px;
+            right: 36px;
+            font-size: 0.65em;
+            color: var(--cite-color, #999);
+            border-top: 1px solid var(--cite-color, #ccc);
+            padding-top: 4px;
+            opacity: 0.75;
+        }
+
+        section.slide-center {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .box-info hr {
+            border: none;
+            border-top: 1px solid var(--box-info-border);
+            margin: 8px 0;
+        }
+
+        .box-warning hr {
+            border: none;
+            border-top: 1px solid var(--box-warning-border);
+            margin: 8px 0;
+        }
+
+        .box-danger hr {
+            border: none;
+            border-top: 1px solid var(--box-danger-border);
+            margin: 8px 0;
+        }
+
+        .box-success hr {
+            border: none;
+            border-top: 1px solid var(--box-success-border);
+            margin: 8px 0;
+        }
+
+        /* ══════════════════════════════════════════════════════════════════════
+   [[ ]] LAYOUT CONTAINERS
+   ══════════════════════════════════════════════════════════════════════ */
+
+        /* ── Slide wrapper ──────────────────────────────────────────────────── */
+        .orz-slide-wrap {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .orz-header {
+            flex: 0 0 auto;
+            padding: 0;
+        }
+
+        .orz-body {
+            flex: 1 1 0;
+            min-height: 0;
+            overflow: hidden;
+            padding: 10px 20px 6px;
+            box-sizing: border-box;
+        }
+
+        /* Body layout modes */
+        .orz-body.orz-body-cols {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: stretch;
+        }
+
+        .orz-body.orz-body-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .orz-body.orz-body-plain {
+            display: block;
+        }
+
+        /* Center layout: single centred block */
+        .orz-body.orz-body-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orz-footer {
+            flex: 0 0 auto;
+            padding: 5px 20px 8px;
+            font-size: 0.65em;
+            color: var(--cite-color, #999);
+            border-top: 1px solid var(--cite-color, #ccc);
+            opacity: 0.8;
+        }
+
+        /* ── Column container ───────────────────────────────────────────────── */
+        .orz-col {
+            flex: 0 0 calc(var(--orz-frac, 0.5) * 100% - 5px);
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 0 6px;
+        }
+
+        /* ── Row container ──────────────────────────────────────────────────── */
+        .orz-row {
+            flex: 0 0 calc(var(--orz-frac, 0.5) * 100% - 3px);
+            min-height: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 4px 0;
+        }
+
+        /* Row containing cols becomes flex row */
+        .orz-row.has-cols {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: stretch;
+        }
+
+        /* ── Center container ───────────────────────────────────────────────── */
+        .orz-center {
+            width: calc(var(--orz-width, 0.6) * 100%);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        /* ── Float container ────────────────────────────────────────────────── */
+        .orz-float {
+            position: absolute;
+            left: calc(var(--orz-x, 0.0) * 100%);
+            top: calc(var(--orz-y, 0.0) * 100%);
+            width: calc(var(--orz-w, 0.3) * 100%);
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        /* ══════════════════════════════════════════════════════════════════════
+   LAYOUT PLACEHOLDER VISIBILITY
+   Dashed outlines + type labels are hidden by default (output mode).
+   They only appear when a parent element has class="orz-show-frames"
+   (added by the extension preview when the Frames toggle is ON).
+   ══════════════════════════════════════════════════════════════════════ */
+        .orz-col,
+        .orz-row,
+        .orz-center {
+            position: relative;
+        }
+
+        .orz-show-frames .orz-col {
+            outline: 1.5px dashed rgba(79, 70, 229, 0.35);
+        }
+
+        .orz-show-frames .orz-row {
+            outline: 1.5px dashed rgba(16, 185, 129, 0.35);
+        }
+
+        .orz-show-frames .orz-center {
+            outline: 1.5px dashed rgba(245, 158, 11, 0.35);
+        }
+
+        .orz-show-frames .orz-float {
+            outline: 1.5px dashed rgba(239, 68, 68, 0.35);
+        }
+
+        .orz-show-frames [data-orz-label]::after {
+            content: attr(data-orz-label);
+            position: absolute;
+            bottom: 3px;
+            left: 5px;
+            font-size: 9px;
+            font-family: 'Courier New', monospace;
+            padding: 1px 5px;
+            border-radius: 2px;
+            line-height: 1.4;
+            z-index: 5;
+            pointer-events: none;
+            white-space: nowrap;
+            opacity: 0.8;
+        }
+
+        .orz-show-frames .orz-col[data-orz-label]::after {
+            background: rgba(79, 70, 229, 0.10);
+            color: #4f46e5;
+        }
+
+        .orz-show-frames .orz-row[data-orz-label]::after {
+            background: rgba(16, 185, 129, 0.10);
+            color: #059669;
+        }
+
+        .orz-show-frames .orz-center[data-orz-label]::after {
+            background: rgba(245, 158, 11, 0.10);
+            color: #d97706;
+        }
+
+        .orz-show-frames .orz-float[data-orz-label]::after {
+            background: rgba(239, 68, 68, 0.10);
+            color: #dc2626;
+            top: 3px;
+            bottom: auto;
+        }
+
+        /* Placeholder content block inside a container */
+        .orz-ph {
+            border: 1.5px dashed rgba(150, 150, 150, 0.38);
+            border-radius: 5px;
+            background: rgba(150, 150, 150, 0.04);
+            padding: 14px 16px;
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--cite-color, #aaa);
+            font-style: italic;
+            font-size: 0.8em;
+            text-align: center;
+            gap: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .orz-ph-tag {
+            font-style: normal;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            background: rgba(99, 102, 241, 0.1);
+            color: rgba(99, 102, 241, 0.75);
+            padding: 1px 7px;
+            border-radius: 3px;
+        }
+
+        /* ══════════════════════════════════════════════════════════════════════
+   TITLE & SECTION SLIDE LAYOUTS
+   ══════════════════════════════════════════════════════════════════════ */
+
+        /* ── Presentation title slide ───────────────────────────────────────── */
+        .reveal .orz-title-slide {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 80px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .reveal .orz-title-slide.tpl-centered {
+            align-items: center;
+            text-align: center;
+        }
+
+        .reveal .orz-title-slide.tpl-minimal {
+            background: var(--accent) !important;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .reveal .orz-title-slide.tpl-split {
+            flex-direction: row;
+            align-items: stretch;
+            padding: 0;
+        }
+
+        .reveal .orz-title-slide .orz-title-main {
+            flex: 1;
+        }
+
+        .reveal .orz-title-slide .orz-title-split-aside {
+            flex: 0 0 38%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .reveal .orz-title-slide.tpl-split .orz-title-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 60px;
+        }
+
+        .reveal .orz-title-slide .orz-title-meta {
+            width: 100%;
+            margin-top: 28px;
+            padding-top: 14px;
+            border-top: 1px solid var(--cite-color, #ccc);
+        }
+
+        .reveal .orz-title-slide.tpl-minimal .title-heading {
+            background: transparent;
+            border: none;
+            color: #fff;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .reveal .orz-title-slide.tpl-minimal .title-subtitle {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .reveal .orz-title-slide.tpl-minimal .title-author {
+            color: rgba(255, 255, 255, 0.70);
+        }
+
+        .reveal .orz-title-slide.tpl-minimal .orz-title-meta {
+            border-top-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ── Section title slide ────────────────────────────────────────────── */
+        .reveal .orz-section-slide {
+            display: flex !important;
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* accent-band template (default) */
+        .reveal .orz-section-slide.tpl-accent-band .orz-section-band {
+            flex: 0 0 42%;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .reveal .orz-section-slide.tpl-accent-band .orz-section-body {
+            flex: 1 1 auto;
+            padding: 26px 80px;
+        }
+
+        /* sidebar template */
+        .reveal .orz-section-slide.tpl-sidebar {
+            flex-direction: row;
+        }
+
+        .reveal .orz-section-slide.tpl-sidebar .orz-section-stripe {
+            flex: 0 0 10px;
+        }
+
+        .reveal .orz-section-slide.tpl-sidebar .orz-section-body {
+            flex: 1 1 auto;
+            padding: 60px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* minimal template */
+        .reveal .orz-section-slide.tpl-minimal {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* h1 inside section band — reset heading bar */
+        .orz-section-band h1 {
+            background: transparent !important;
+            box-shadow: none !important;
+            color: inherit !important;
+            border: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            margin: 0 !important;
+            font-size: 2.2em;
+        }
+
+        /* h1 in minimal section slide — use accent so themes with white heading-color
+           (e.g. poppy) stay visible on the slide background */
+        .reveal .orz-section-slide.tpl-minimal h1 {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+            padding: 0 !important;
+            width: auto !important;
+            margin: 0 0 16px !important;
+            font-size: 2.5em;
+            color: var(--accent) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ═══ DECK SETTINGS & META ════════════════════════════════════════ -->
+            <script type="text/orz-settings">
+{ "theme": "executive", "aspectRatio": "16:9", "transition": "slide" }
+</script>
+            <script type="text/orz-meta">
+{ "author": "Template Author", "affiliation": "Example University", "date": "2026-04-20" }
+</script>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 1 — Presentation Title (centered template)
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="0">
+# ORZ Slides
+
+## A Feature-Rich Presentation System for VS Code
+
+{{nyml
+template: centered
+author: Template Author
+affiliation: Example University
+date: 2026-04-20
+}}
+</script>
+            <section>
+                <div class="orz-title-slide tpl-centered">
+                    <div class="orz-title-main">
+                        <h1 class="title-heading">ORZ Slides</h1>
+                        <p class="title-subtitle">A Feature-Rich Presentation System for VS Code</p>
+                        <div class="orz-title-meta">
+                            <p class="title-author">Template Author &nbsp;·&nbsp; Example University &nbsp;·&nbsp;
+                                2026-04-20</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Welcome. Replace the title, subtitle, author, affiliation, and date with your own
+                    content. Delete this slide if not needed.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 2 — Template Overview
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="1">
+## What This Template Covers
+
+1. **Text & Markdown** — formatting, lists, code, blockquotes, tables
+2. **Math & Chemistry** — KaTeX inline/display, mhchem notation
+3. **Rich Media** — Mermaid diagrams, SMILES structures, QR codes
+4. **Semantic Containers** — info/warning/danger/success boxes, spoilers, tabs
+5. **Layout System** — columns, rows, center, float, footer
+6. **Fragments & Notes** — step-by-step reveal, speaker notes
+
+[[note Use the arrow keys or swipe to navigate. Press S to open speaker notes. Press O for overview mode.]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>What This Template Covers</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <ol style="margin-left:40px; margin-right:40px;">
+                            <li><strong>Text &amp; Markdown</strong> — formatting, lists, code, blockquotes, tables</li>
+                            <li><strong>Math &amp; Chemistry</strong> — KaTeX inline/display, mhchem notation</li>
+                            <li><strong>Rich Media</strong> — Mermaid diagrams, SMILES structures, QR codes</li>
+                            <li><strong>Semantic Containers</strong> — info/warning/danger/success, spoilers, tabs</li>
+                            <li><strong>Layout System</strong> — columns, rows, center, float, footer</li>
+                            <li><strong>Fragments &amp; Notes</strong> — step-by-step reveal, speaker notes</li>
+                        </ol>
+                    </div>
+                </div>
+                <aside class="notes">Use arrow keys or swipe to navigate. Press S for speaker notes, O for overview
+                    mode.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 3 — Section: Part I Text & Markdown
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="2">
+# Part I: Text &amp; Markdown
+
+Standard CommonMark plus orz-markdown extensions.
+</script>
+            <section class="orz-section-slide tpl-accent-band">
+                <div class="orz-section-band">
+                    <h1>Part I: Text &amp; Markdown</h1>
+                </div>
+                <div class="orz-section-body">
+                    <p>Standard CommonMark plus orz-markdown extensions.</p>
+                </div>
+                <aside class="notes">Part I covers all text formatting and standard markdown features.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 4 — Text Formatting
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="3">
+## Text Formatting
+
+**Bold text** · *Italic text* · ***Bold italic*** · `inline code`
+
+==Highlighted== · ++Inserted++ · ~~Strikethrough~~
+
+Subscript H~2~O · Superscript E = mc^2^
+
+{{sp[red] Red span}} · {{sp[green] Green span}} · {{sp[blue] Blue span}} · {{sp[warning] Warning badge}}
+
+> A blockquote. Useful for quoting sources or calling out important passages.
+> > Nested blockquote for extra emphasis.
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Text Formatting</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <p style="margin:8px 40px;"><strong>Bold text</strong> · <em>Italic text</em> · <strong><em>Bold
+                                    italic</em></strong> · <code>inline code</code></p>
+                        <p style="margin:8px 40px;"><mark class="text-highlight">Highlighted</mark> ·
+                            <ins>Inserted</ins> · <s>Strikethrough</s>
+                        </p>
+                        <p style="margin:8px 40px;">Subscript H<sub>2</sub>O · Superscript E&nbsp;=&nbsp;mc<sup>2</sup>
+                        </p>
+                        <p style="margin:8px 40px;">
+                            <span class="red">Red span</span> ·
+                            <span class="green">Green span</span> ·
+                            <span class="blue">Blue span</span> ·
+                            <span class="warning">Warning badge</span>
+                        </p>
+                        <blockquote
+                            style="margin:12px 40px; border-left:4px solid var(--accent); padding-left:16px; color:var(--cite-color);">
+                            <p style="margin:0 0 6px;">A blockquote. Useful for quoting sources or calling out important
+                                passages.</p>
+                            <blockquote style="border-left:3px solid var(--accent); padding-left:12px; margin:0;">
+                                <p style="margin:0;">Nested blockquote for extra emphasis.</p>
+                            </blockquote>
+                        </blockquote>
+                    </div>
+                </div>
+                <aside class="notes">Demonstrates all inline formatting available in orz-markdown.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 5 — Lists
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="4">
+## Lists
+
+[[col[0.33]
+**Unordered**
+- Alpha
+- Beta
+  - Beta 1
+  - Beta 2
+- Gamma
+]]
+[[col[0.33]
+**Ordered**
+1. First item
+2. Second item
+3. Third item
+   1. Nested
+   2. Nested
+]]
+[[col[0.34]
+**Task list**
+- [x] Completed task
+- [x] Also done
+- [ ] Pending task
+- [ ] Another to-do
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Lists</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
+                            <p><strong>Unordered</strong></p>
+                            <ul>
+                                <li>Alpha</li>
+                                <li>Beta
+                                    <ul>
+                                        <li>Beta 1</li>
+                                        <li>Beta 2</li>
+                                    </ul>
+                                </li>
+                                <li>Gamma</li>
+                            </ul>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
+                            <p><strong>Ordered</strong></p>
+                            <ol>
+                                <li>First item</li>
+                                <li>Second item</li>
+                                <li>Third item
+                                    <ol>
+                                        <li>Nested</li>
+                                        <li>Nested</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.34" data-orz-label="col 34%">
+                            <p><strong>Task list</strong></p>
+                            <ul style="list-style:none; margin-left:0;">
+                                <li>☑ Completed task</li>
+                                <li>☑ Also done</li>
+                                <li>☐ Pending task</li>
+                                <li>☐ Another to-do</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Three column layout showing unordered, ordered, and task lists.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 6 — Code
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="5">
+## Code Blocks
+
+[[col[0.5]
+```javascript
+// Fibonacci — recursive memoised
+function fib(n, memo = {}) {
+    if (n <= 1) return n;
+    if (memo[n]) return memo[n];
+    return memo[n] = fib(n-1, memo) + fib(n-2, memo);
+}
+console.log(fib(40)); // 102334155
+```
+]]
+[[col[0.5]
+```python
+# List comprehension + generator
+squares = [x**2 for x in range(10)]
+even_sq  = (x**2 for x in range(10) if x % 2 == 0)
+
+def greet(name: str = "world") -> str:
+    return f"Hello, {name}!"
+
+print(greet("ORZ"))
+```
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Code Blocks</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <pre><code class="language-javascript">// Fibonacci — recursive memoised
+function fib(n, memo = {}) {
+    if (n &lt;= 1) return n;
+    if (memo[n]) return memo[n];
+    return memo[n] = fib(n-1, memo)
+                   + fib(n-2, memo);
+}
+console.log(fib(40)); // 102334155</code></pre>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <pre><code class="language-python"># List comprehension + generator
+squares = [x**2 for x in range(10)]
+even_sq  = (x**2 for x in range(10)
+            if x % 2 == 0)
+
+def greet(name: str = "world") -&gt; str:
+    return f"Hello, {name}!"
+
+print(greet("ORZ"))</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Side-by-side code examples. Syntax highlighting via Highlight.js.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 7 — Tables
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="6">
+## Tables
+
+| Feature | Syntax | Status |
+|---------|--------|--------|
+| Bold / Italic | `**bold**` / `*italic*` | ✅ Supported |
+| Highlight | `==text==` | ✅ Supported |
+| Math inline | `$E=mc^2$` | ✅ Supported |
+| Footnotes | `[^1]` | ✅ Supported |
+| Custom spans | `{{sp[red] text}}` | ✅ Supported |
+
+Rows can be highlighted with `.row-highlight` for emphasis.
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Tables</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <table style="margin: 8px 20px; width: calc(100% - 40px);">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Syntax</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bold / Italic</td>
+                                    <td><code>**bold**</code> / <code>*italic*</code></td>
+                                    <td>✅ Supported</td>
+                                </tr>
+                                <tr class="row-highlight">
+                                    <td>Highlight</td>
+                                    <td><code>==text==</code></td>
+                                    <td>✅ Supported</td>
+                                </tr>
+                                <tr>
+                                    <td>Math inline</td>
+                                    <td><code>$E=mc^2$</code></td>
+                                    <td>✅ Supported</td>
+                                </tr>
+                                <tr class="row-highlight">
+                                    <td>Footnotes</td>
+                                    <td><code>[^1]</code></td>
+                                    <td>✅ Supported</td>
+                                </tr>
+                                <tr>
+                                    <td>Custom spans</td>
+                                    <td><code>{{sp[red] text}}</code></td>
+                                    <td>✅ Supported</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin:10px 40px;" class="cite">Rows can be highlighted with
+                            <code>.row-highlight</code> for emphasis.
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">Table with header styling and alternating row highlights.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 8 — Math & Chemistry
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="7">
+## Math &amp; Chemistry
+
+[[col[0.5]
+**Inline math:** The energy–mass relation $E = mc^2$ was derived by Einstein.
+
+**Display math:**
+$$
+\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}
+$$
+
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$
+]]
+[[col[0.5]
+**Chemistry (mhchem):**
+
+Combustion: $\ce{CH4 + 2O2 -> CO2 + 2H2O}$
+
+Redox: $\ce{Fe^{2+} + 2e- -> Fe}$
+
+Equilibrium: $\ce{N2 + 3H2 <=> 2NH3}$
+
+Hydration: $\ce{CuSO4 * 5H2O}$
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Math &amp; Chemistry</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Inline math:</strong> The energy–mass relation \(E = mc^2\) was derived by
+                                Einstein.</p>
+                            <p><strong>Display math:</strong></p>
+                            <p>\[\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}\]</p>
+                            <p>\[\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}\]</p>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Chemistry (mhchem):</strong></p>
+                            <p>Combustion: \(\ce{CH4 + 2O2 -> CO2 + 2H2O}\)</p>
+                            <p>Redox: \(\ce{Fe^{2+} + 2e- -> Fe}\)</p>
+                            <p>Equilibrium: \(\ce{N2 + 3H2 <=> 2NH3}\)</p>
+                            <p>Hydration: \(\ce{CuSO4 * 5H2O}\)</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">KaTeX handles all math. mhchem extension adds chemical equation support.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 9 — Section: Part II Rich Media
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="8">
+# Part II: Rich Media
+
+Diagrams, chemical structures, QR codes, and more.
+</script>
+            <section class="orz-section-slide tpl-sidebar">
+                <div class="orz-section-stripe"></div>
+                <div class="orz-section-body">
+                    <h1>Part II: Rich Media</h1>
+                    <p>Diagrams, chemical structures, QR codes, and more.</p>
+                </div>
+                <aside class="notes">Part II covers rich media elements rendered client-side.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 10 — Mermaid Diagrams
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="9">
+## Mermaid Diagrams
+
+[[col[0.5]
+**Flowchart**
+
+{{mm
+graph LR
+  A([Start]) --> B{Decision}
+  B -->|Yes| C[Process A]
+  B -->|No| D[Process B]
+  C --> E([End])
+  D --> E
+}}
+]]
+[[col[0.5]
+**Sequence diagram**
+
+{{mm
+sequenceDiagram
+  participant U as User
+  participant E as Extension
+  participant P as Parser
+  U->>E: Edit markdown
+  E->>P: renderMarkdown()
+  P-->>E: HTML fragment
+  E-->>U: Live preview
+}}
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Mermaid Diagrams</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Flowchart</strong></p>
+                            <div class="mermaid">
+                                graph LR
+                                A([Start]) --> B{Decision}
+                                B -->|Yes| C[Process A]
+                                B -->|No| D[Process B]
+                                C --> E([End])
+                                D --> E
+                            </div>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Sequence diagram</strong></p>
+                            <div class="mermaid">
+                                sequenceDiagram
+                                participant U as User
+                                participant E as Extension
+                                participant P as Parser
+                                U->>E: Edit markdown
+                                E->>P: renderMarkdown()
+                                P-->>E: HTML fragment
+                                E-->>U: Live preview
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Mermaid renders all diagram types client-side from plain text definitions.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 11 — Chemical Structures (SMILES)
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="10">
+## Chemical Structures
+
+[[col[0.33]
+**Caffeine** $\ce{C8H10N4O2}$
+
+{{smiles CN1C=NC2=C1C(=O)N(C(=O)N2C)C}}
+]]
+[[col[0.33]
+**Benzene** $\ce{C6H6}$
+
+{{smiles C1=CC=CC=C1}}
+]]
+[[col[0.34]
+**Aspirin** $\ce{C9H8O4}$
+
+{{smiles CC(=O)Oc1ccccc1C(=O)O}}
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Chemical Structures</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
+                            <p><strong>Caffeine</strong> \(\ce{C8H10N4O2}\)</p>
+                            <svg data-smiles="CN1C=NC2=C1C(=O)N(C(=O)N2C)C" width="200" height="180"
+                                style="display:block;margin:auto;"></svg>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
+                            <p><strong>Benzene</strong> \(\ce{C6H6}\)</p>
+                            <svg data-smiles="C1=CC=CC=C1" width="200" height="180"
+                                style="display:block;margin:auto;"></svg>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.34" data-orz-label="col 34%">
+                            <p><strong>Aspirin</strong> \(\ce{C9H8O4}\)</p>
+                            <svg data-smiles="CC(=O)Oc1ccccc1C(=O)O" width="200" height="180"
+                                style="display:block;margin:auto;"></svg>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">SmilesDrawer renders SMILES strings into SVG structures client-side.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 12 — QR Codes & Emoji
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="11">
+## QR Codes, Emoji &amp; More
+
+[[col[0.5]
+**QR Code** — click to expand
+
+{{qr https://github.com}}
+
+**Emoji** (by name)
+
+{{em rocket}} Launch  {{space 2}} {{em tada}} Done  {{space 2}} {{em warning}} Watch out
+
+{{em smile}} Great  {{space 2}} {{em fire}} Hot  {{space 2}} {{em star}} Favourite
+]]
+[[col[0.5]
+**YouTube embed**
+
+{{yt dQw4w9WgXcQ}}
+
+*Replace the video ID with your own content.*
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>QR Codes, Emoji &amp; More</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>QR Code</strong> — click to expand</p>
+                            <p>
+                                <span class="qrcode" style="background:#fff;display:inline-block;padding:4px;">
+                                    <!-- QR runtime generates SVG here for https://github.com -->
+                                    <svg viewBox="0 0 100 100" width="80" height="80" style="display:block">
+                                        <rect width="100" height="100" fill="#fff" />
+                                        <text x="50" y="55" text-anchor="middle" font-size="8" fill="#666">QR:
+                                            github.com</text>
+                                    </svg>
+                                </span>
+                            </p>
+                            <p><strong>Emoji</strong> (by name)</p>
+                            <p>🚀 Launch &nbsp;&nbsp; 🎉 Done &nbsp;&nbsp; ⚠️ Watch out</p>
+                            <p>😊 Great &nbsp;&nbsp; 🔥 Hot &nbsp;&nbsp; ⭐ Favourite</p>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>YouTube embed</strong></p>
+                            <div
+                                style="position:relative;height:0;padding-bottom:56.25%;overflow:hidden;margin-top:8px;">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                    style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <p class="cite"><em>Replace the video ID with your own content.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">QR codes expand on click. Emoji resolved server-side at render time. YouTube uses a
+                    responsive iframe wrapper.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 13 — Section: Part III Semantic Containers
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="12">
+# Part III: Semantic Containers
+
+Callout boxes, spoilers, tabs, and multi-column layouts.
+</script>
+            <section class="orz-section-slide tpl-accent-band">
+                <div class="orz-section-band">
+                    <h1>Part III: Semantic Containers</h1>
+                </div>
+                <div class="orz-section-body">
+                    <p>Callout boxes, spoilers, tabs, and multi-column layouts.</p>
+                </div>
+                <aside class="notes">Part III covers all container types from the orz-markdown ::: syntax.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 14 — Callout Boxes
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="13">
+## Callout Boxes
+
+[[row[0.5]
+[[col[0.5]
+::: info
+**Info:** Use this for supplementary information, tips, or notes that add context without interrupting the main flow.
+:::
+]]
+[[col[0.5]
+::: warning
+**Warning:** Use this for caveats, potential pitfalls, or things the audience should pay attention to.
+:::
+]]
+]]
+[[row[0.5]
+[[col[0.5]
+::: success
+**Success:** Confirm a completed step, a correct answer, or a positive outcome.
+:::
+]]
+[[col[0.5]
+::: danger
+**Danger:** Reserved for errors, critical warnings, or irreversible actions.
+:::
+]]
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Callout Boxes</h2>
+                    </div>
+                    <div class="orz-body orz-body-rows">
+                        <div class="orz-row has-cols" style="--orz-frac:0.5" data-orz-label="row 50%">
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <div class="box-info" style="margin:6px;">
+                                    <p><strong>Info:</strong> Use this for supplementary information, tips, or notes
+                                        that add
+                                        context without interrupting the main flow.</p>
+                                </div>
+                            </div>
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <div class="box-warning" style="margin:6px;">
+                                    <p><strong>Warning:</strong> Use this for caveats, potential pitfalls, or things the
+                                        audience should pay attention to.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orz-row has-cols" style="--orz-frac:0.5" data-orz-label="row 50%">
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <div class="box-success" style="margin:6px;">
+                                    <p><strong>Success:</strong> Confirm a completed step, a correct answer, or a
+                                        positive outcome.</p>
+                                </div>
+                            </div>
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <div class="box-danger" style="margin:6px;">
+                                    <p><strong>Danger:</strong> Reserved for errors, critical warnings, or irreversible
+                                        actions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Four semantic callout types. Use consistently — don't swap their semantic meanings.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 15 — Spoilers & Tabs
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="14">
+## Spoilers &amp; Tabs
+
+[[col[0.5]
+**Spoiler (collapsible)**
+
+::: spoil Click to reveal the answer
+The answer is 42.
+
+It has always been 42.
+:::
+
+::: spoil Hint for exercise 2
+Consider using dynamic programming. Build up the solution from base cases.
+:::
+]]
+[[col[0.5]
+**Tab groups**
+
+::::tabs
+::: tab Python
+```python
+def hello():
+    return "Hello, World!"
+```
+:::
+::: tab JavaScript
+```javascript
+function hello() {
+    return "Hello, World!";
+}
+```
+:::
+::: tab Rust
+```rust
+fn hello() -> &'static str {
+    "Hello, World!"
+}
+```
+:::
+::::
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Spoilers &amp; Tabs</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Spoiler (collapsible)</strong></p>
+                            <details class="spoil" style="margin-bottom:10px;">
+                                <summary>Click to reveal the answer</summary>
+                                <p style="margin:8px 0 0;">The answer is 42.</p>
+                                <p style="margin:4px 0 0;">It has always been 42.</p>
+                            </details>
+                            <details class="spoil">
+                                <summary>Hint for exercise 2</summary>
+                                <p style="margin:8px 0 0;">Consider using dynamic programming. Build up from base cases.
+                                </p>
+                            </details>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <p><strong>Tab groups</strong></p>
+                            <div class="tabs" data-js="1">
+                                <div class="tabs-bar">
+                                    <button class="tabs-bar-btn active" onclick="switchTab(this, 'py')">Python</button>
+                                    <button class="tabs-bar-btn" onclick="switchTab(this, 'js')">JavaScript</button>
+                                    <button class="tabs-bar-btn" onclick="switchTab(this, 'rs')">Rust</button>
+                                </div>
+                                <div class="tab active" id="tab-py">
+                                    <pre><code class="language-python">def hello():
+    return "Hello, World!"</code></pre>
+                                </div>
+                                <div class="tab" id="tab-js">
+                                    <pre><code class="language-javascript">function hello() {
+    return "Hello, World!";
+}</code></pre>
+                                </div>
+                                <div class="tab" id="tab-rs">
+                                    <pre><code class="language-rust">fn hello() -&gt; &amp;'static str {
+    "Hello, World!"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Spoilers are details/summary elements. Tabs need the JS tab switcher to activate.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 16 — Section: Part IV Layout System
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="15">
+# Part IV: Layout System
+
+Flexible containers using the [[ ]] syntax.
+</script>
+            <section class="orz-section-slide tpl-minimal">
+                <h1>Part IV: Layout System</h1>
+                <p style="color:inherit; opacity:0.8; margin-top:12px;">Flexible containers using the <code>[[ ]]</code>
+                    syntax.</p>
+                <aside class="notes">Part IV demonstrates all layout container types.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 17 — Two Equal Columns
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="16">
+## Two Equal Columns
+
+[[col[0.5]
+### Left Column
+
+Replace this placeholder with your content — a list, an image, a code block, or any markdown element.
+
+- Item one
+- Item two
+- Item three
+]]
+[[col[0.5]
+### Right Column
+
+Each column occupies 50% of the available body width. Columns stretch to the full body height.
+
+Use `[[col[0.5] ... ]]` for each column.
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Two Equal Columns</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <h3 class="heading-plain text-accent">Left Column</h3>
+                            <p>Replace this placeholder with your content — a list, an image, a code block, or any
+                                markdown element.</p>
+                            <ul>
+                                <li>Item one</li>
+                                <li>Item two</li>
+                                <li>Item three</li>
+                            </ul>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <h3 class="heading-plain text-accent">Right Column</h3>
+                            <p>Each column occupies 50% of the available body width. Columns stretch to the full body
+                                height.</p>
+                            <p>Use <code>[[col[0.5] ... ]]</code> for each column.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Basic two-column layout. Both columns share equal width.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 18 — Asymmetric Columns: Image + Text
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="17">
+## Asymmetric Columns — Image + Text
+
+[[col[0.38]
+Replace with an image:
+
+![Your image here](placeholder)
+
+Or any graphic content.
+]]
+[[col[0.62]
+### Key Points
+
+- Use `[[col[0.38]]]` for a narrower image column
+- Use `[[col[0.62]]]` for a wider text column
+- Column fractions must sum to ≤ 1.0
+
+The narrower column is ideal for a figure, chart, or illustration. The wider column holds the explanation or bullet points.
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Asymmetric Columns — Image + Text</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.38" data-orz-label="col 38%">
+                            <div class="orz-ph">
+                                <div class="orz-ph-tag">[[col 38%]]</div>
+                                <span>Replace with an image or graphic</span>
+                                <div class="placeholder-img" style="min-height:160px;">📷 Your image here</div>
+                            </div>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.62" data-orz-label="col 62%">
+                            <h3 class="heading-plain text-accent">Key Points</h3>
+                            <ul>
+                                <li>Use <code>[[col[0.38]]]</code> for a narrower image column</li>
+                                <li>Use <code>[[col[0.62]]]</code> for a wider text column</li>
+                                <li>Column fractions must sum to ≤ 1.0</li>
+                            </ul>
+                            <p>The narrower column is ideal for a figure or chart. The wider column holds the
+                                explanation.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Asymmetric columns for image-text layouts. The placeholder shows where an image
+                    would go.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 19 — Nested: Col → Rows
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="18">
+## Nested Layout — Column Containing Rows
+
+[[col[0.45]
+![Large figure on the left](placeholder)
+]]
+[[col[0.55]
+[[row[0.5]
+### Top section
+
+First observation or key point about the figure on the left.
+]]
+[[row[0.5]
+### Bottom section
+
+Second observation or supporting detail. Add more rows as needed.
+]]
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Nested Layout — Column Containing Rows</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.45" data-orz-label="col 45%">
+                            <div class="orz-ph" style="height:90%; min-height:200px;">
+                                <div class="orz-ph-tag">[[col 45%]]</div>
+                                <span>Large figure on the left</span>
+                                <div class="placeholder-img" style="min-height:180px; flex:1;">📊 Figure / Chart</div>
+                            </div>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.55" data-orz-label="col 55%">
+                            <div class="orz-row" style="--orz-frac:0.5" data-orz-label="row 50%">
+                                <h3 class="heading-plain text-accent">Top section</h3>
+                                <p>First observation or key point about the figure on the left.</p>
+                            </div>
+                            <div class="orz-row" style="--orz-frac:0.5" data-orz-label="row 50%">
+                                <h3 class="heading-plain text-accent">Bottom section</h3>
+                                <p>Second observation or supporting detail. Add more rows as needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">A col can contain rows. The right column splits vertically into two equal rows.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 20 — Row Stacking
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="19">
+## Row Stacking
+
+[[row[0.35]
+::: info
+**Rule:** Once a parent row or col is split into child containers, do not mix bare content with those child containers.
+
+Use two or more child rows or cols to occupy that parent, then place content inside each child.
+
+This keeps the rendering logic explicit and easier to maintain.
+:::
+]]
+[[row[0.65]
+[[col[0.5]
+**Left detail**
+
+This row contains only child cols. Put the explanation, bullets, image, or table inside those child containers.
+]]
+[[col[0.5]
+**Right detail**
+
+Avoid adding a parent-level heading or paragraph beside the child cols. Keep the parent dedicated to structure.
+]]
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Row Stacking</h2>
+                    </div>
+                    <div class="orz-body orz-body-rows">
+                        <div class="orz-row" style="--orz-frac:0.35" data-orz-label="row 35%">
+                            <div class="box-info" style="margin:4px 0; padding:10px 16px;">
+                                <strong>Rule:</strong> Once a parent row or col is split into child containers, do not
+                                mix bare content with those child containers. Use two or more child rows or cols to
+                                occupy that parent, then place content inside each child. This keeps the rendering
+                                logic explicit and easier to maintain.
+                            </div>
+                        </div>
+                        <div class="orz-row has-cols" style="--orz-frac:0.65" data-orz-label="row 65%">
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <h3 class="heading-plain text-accent">Left detail</h3>
+                                <p>This row contains only child cols. Put the explanation, bullets, image, or table
+                                    inside those child containers.</p>
+                            </div>
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <h3 class="heading-plain text-accent">Right detail</h3>
+                                <p>Avoid adding a parent-level heading or paragraph beside the child cols. Keep the
+                                    parent dedicated to structure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Rows stack vertically. Reinforce the authoring rule: once a parent is split into
+                    child containers, keep visible content inside those children rather than beside them.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 21 — Center Container
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="20">
+## Center Container
+
+[[center[0.65]
+### The Central Message
+
+Use `[[center[width] content]]` when you want a single focused element centered both horizontally and vertically.
+
+Width accepts `0.65`, `65%`, or `2/3`.
+
+A center container cannot have siblings — it is the sole child of its parent.
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Center Container</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain"
+                        style="display:flex; align-items:center; justify-content:center;">
+                        <div class="orz-center" style="--orz-width:0.65" data-orz-label="center 65%">
+                            <div class="key-question">
+                                The Central Message
+                            </div>
+                            <p style="text-align:center; margin-top:14px;">Use <code>[[center[width] content]]</code>
+                                when you want a single focused element centered both horizontally and vertically.</p>
+                            <p style="text-align:center;" class="cite">Width accepts <code>0.65</code>,
+                                <code>65%</code>, or <code>2/3</code>. A center container cannot have siblings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Center container centers content both horizontally and vertically within its
+                    parent.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 22 — Float Container
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="21">
+## Float Container
+
+Main body content. The text here fills the regular flow of the slide. Float containers sit on top of everything else.
+
+Key points about this topic:
+- Float is positioned from the **top-left corner** of the slide
+- Coordinates and width use `%`, fractions like `1/2`, or decimals like `0.5`
+- Multiple floats can overlap each other
+
+[[float[0.64, 0.18, 0.33]
+### {{sp[blue] Floating badge}}
+
+`[[float[64%, 18%, 33%]]]`
+
+This box floats at x=64%, y=18%, width=33% of the slide.
+Replace with a callout, annotation, or caption.
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap" style="position:relative;">
+                    <div class="orz-header">
+                        <h2>Float Container</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <p>Main body content. The text here fills the regular flow of the slide. Float containers sit on
+                            top of everything else.</p>
+                        <p>Key points about this topic:</p>
+                        <ul>
+                            <li>Float is positioned from the <strong>top-left corner</strong> of the slide</li>
+                            <li>Coordinates and width use <code>%</code>, fractions like <code>1/2</code>, or decimals
+                                like <code>0.5</code></li>
+                            <li>Multiple floats can overlap each other</li>
+                        </ul>
+                    </div>
+                    <div class="orz-float" style="--orz-x:0.63; --orz-y:0.22; --orz-w:0.33;"
+                        data-orz-label="float 63% 22% w=33%">
+                        <div class="box-info" style="padding:12px 16px;">
+                            <h3 class="heading-plain" style="color:var(--box-info-border); margin-bottom:6px;">Floating
+                                badge</h3>
+                            <p style="margin:0; font-size:0.82em;"><code>[[float[63%, 22%, 33%]]]</code><br>This box
+                                floats at x=63%, y=22%, width=33% of the slide. Replace with a callout, annotation, or
+                                caption.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Float containers are absolutely positioned and always appear above other content.
+                    Useful for annotations, callout arrows, or badges.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 23 — Footer
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="22">
+## Footer Bar
+
+This slide has a persistent footer at the bottom. The footer occupies its own strip, reducing the body height slightly.
+
+Use the footer for:
+- Slide-level citations or references
+- Section labels
+- Revision dates or version numbers
+
+[[footer Source: Smith et al. (2024) · Proceedings of the Annual Conference · DOI: 10.1234/example]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Footer Bar</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <p>This slide has a persistent footer at the bottom. The footer occupies its own strip, reducing
+                            the body height slightly.</p>
+                        <p>Use the footer for:</p>
+                        <ul>
+                            <li>Slide-level citations or references</li>
+                            <li>Section labels</li>
+                            <li>Revision dates or version numbers</li>
+                        </ul>
+                    </div>
+                    <div class="orz-footer" data-orz-label="footer">
+                        Source: Smith et al. (2024) · Proceedings of the Annual Conference · DOI: 10.1234/example
+                    </div>
+                </div>
+                <aside class="notes">Footer is a flex item at the bottom of the slide wrap. Useful for persistent
+                    citations.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 24 — Section: Part V Fragments & Notes
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="23">
+# Part V: Fragments &amp; Speaker Notes
+
+Step-by-step reveals and presenter annotations.
+</script>
+            <section class="orz-section-slide tpl-sidebar">
+                <div class="orz-section-stripe"></div>
+                <div class="orz-section-body">
+                    <h1>Part V: Fragments &amp; Speaker Notes</h1>
+                    <p>Step-by-step reveals and presenter annotations.</p>
+                </div>
+                <aside class="notes">Part V covers fragment animations and speaker notes.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 25 — Fragment Animations
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="24">
+## Fragment Animations
+
+Items can appear one by one using Reveal.js `.fragment` class.
+
+Press → to advance through items below:
+
+- First item appears immediately
+- {.fragment} Second item appears on first press
+- {.fragment} Third item appears on second press
+- {.fragment} Fourth item appears on third press
+
+[[note Advance through the fragments with the → key to demonstrate step-by-step reveals.]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Fragment Animations</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <p>Items can appear one by one using Reveal.js <code>.fragment</code> class.</p>
+                        <p>Press → to advance through items below:</p>
+                        <ul>
+                            <li>First item appears immediately</li>
+                            <li class="fragment">Second item appears on first press</li>
+                            <li class="fragment">Third item appears on second press</li>
+                            <li class="fragment">Fourth item appears on third press</li>
+                        </ul>
+                        <p class="fragment" style="margin:16px 40px;">
+                            <span class="box-success"
+                                style="padding:8px 14px; display:inline-block; border-radius:6px;">
+                                ✅ All items revealed — this box appears last.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">Advance through the fragments with the → key to demonstrate step-by-step reveals.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 26 — Speaker Notes Demo
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="25">
+## Speaker Notes
+
+The audience sees this slide content. The speaker sees notes below.
+
+Use `[[note content]]` in the markdown source to add notes:
+
+```markdown
+[[note
+- First talking point
+- Remind the audience about the context from slide 3
+- Time check: should be at ~15 minutes here
+]]
+```
+
+Press **S** to open the speaker window and see the notes for this slide.
+
+[[note
+Speaker notes for this slide:
+- Remind the audience that notes are invisible during presentation
+- The speaker window shows: current slide, next slide, notes, and a timer
+- Press S to toggle the speaker window
+- Notes are stored as <aside class="notes"> in the rendered HTML
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Speaker Notes</h2>
+                    </div>
+                    <div class="orz-body orz-body-plain">
+                        <p>The audience sees this slide content. The speaker sees notes in a separate window.</p>
+                        <p>Use <code>[[note content]]</code> in the markdown source to add notes:</p>
+                        <pre><code>[[note
+- First talking point
+- Remind the audience about the context from slide 3
+- Time check: should be at ~15 minutes here
+]]</code></pre>
+                        <div class="box-info" style="margin:14px 0;">
+                            <p>Press <strong>S</strong> to open the speaker window and see the notes for this slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Speaker notes for this slide:
+                    - Remind the audience that notes are invisible during presentation
+                    - The speaker window shows: current slide, next slide, notes, and a timer
+                    - Press S to toggle the speaker window
+                    - Notes are stored as &lt;aside class="notes"&gt; in the rendered HTML</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 27 — Theme Showcase
+     ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="26">
+## Available Themes
+
+[[row[0.82]
+[[col[0.5]
+| Theme | Personality |
+|-------|-------------|
+| `theme-paper.css` | Warm serif, book-like |
+| `theme-architect.css` | Blueprint grid |
+| `theme-executive.css` | Dark navy + gold |
+| `theme-sage.css` | Ivory + sage green |
+]]
+[[col[0.5]
+| Theme | Personality |
+|-------|-------------|
+| `theme-poppy.css` | Cream + coral |
+| `theme-neon.css` | Near-black + cyan |
+| `theme-chalk.css` | Blackboard + chalk |
+]]
+]]
+[[row[0.18]
+Each theme file defines only CSS custom properties and decorative overrides — the layout structure is shared.
+]]
+</script>
+            <section>
+                <div class="orz-slide-wrap">
+                    <div class="orz-header">
+                        <h2>Available Themes</h2>
+                    </div>
+                    <div class="orz-body orz-body-rows">
+                        <div class="orz-row has-cols" style="--orz-frac:0.82" data-orz-label="row 82%">
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Theme</th>
+                                            <th>Personality</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>theme-paper.css</code></td>
+                                            <td>Warm serif, book-like</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme-architect.css</code></td>
+                                            <td>Blueprint grid</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme-executive.css</code></td>
+                                            <td>Dark navy + gold</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme-sage.css</code></td>
+                                            <td>Ivory + sage green</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Theme</th>
+                                            <th>Personality</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>theme-poppy.css</code></td>
+                                            <td>Cream + coral</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme-neon.css</code></td>
+                                            <td>Near-black + cyan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme-chalk.css</code></td>
+                                            <td>Blackboard + chalk</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="orz-row" style="--orz-frac:0.18" data-orz-label="row 18%">
+                            <p class="cite" style="margin-top:10px;">Each theme defines only CSS variables and
+                                decorative overrides — layout structure is shared.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">Seven themes ship with the template. Change the href on line 21 of the HTML to
+                    switch.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+         SLIDE 28 — Slide-Local CSS Example
+         ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="27">
+## Custom Class And Inline CSS
+
+{{nyml
+class: spotlight-card warm-accent
+eyebrow: Scoped slide styling
+css: |
+    :slide {
+        background:
+            radial-gradient(circle at top right, rgba(201, 168, 76, 0.18), transparent 30%),
+            linear-gradient(180deg, rgba(18, 32, 46, 0.03), rgba(18, 32, 46, 0.08));
+        border: 1px solid rgba(201, 168, 76, 0.26);
+        border-radius: 18px;
+    }
+
+    :slide .orz-header h2::before {
+        content: attr(data-orz-eyebrow);
+        display: block;
+        font-size: 0.42em;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--orz-nyml-accent-color, var(--accent));
+        margin-bottom: 8px;
+    }
+
+    :slide .demo-card {
+        height: 100%;
+        border-radius: 14px;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 18px 30px rgba(18, 32, 46, 0.08);
+    }
+
+    :slide .demo-card strong {
+        color: var(--accent);
+    }
+accent_color: #c9a84c
+}}
+
+[[col[0.5]
+### Add slide classes
+
+Use `class` or `slideClass` in the NYML block to add custom selectors to the slide root.
+
+This slide adds `spotlight-card` and `warm-accent`.
+]]
+[[col[0.5]
+### Add inline CSS
+
+Use `css: |` for slide-local CSS.
+
+Target the slide root with `:slide` and read arbitrary NYML fields through `data-orz-*` or `--orz-nyml-*`.
+]]
+</script>
+            <section>
+                <style data-orz-local-css="css: |">
+                    [data-orz-slide-scope="slide-27"] {
+                        background:
+                            radial-gradient(circle at top right, rgba(201, 168, 76, 0.18), transparent 30%),
+                            linear-gradient(180deg, rgba(18, 32, 46, 0.03), rgba(18, 32, 46, 0.08));
+                        border: 1px solid rgba(201, 168, 76, 0.26);
+                        border-radius: 18px;
+                    }
+
+                    [data-orz-slide-scope="slide-27"] .orz-header h2::before {
+                        content: attr(data-orz-eyebrow);
+                        display: block;
+                        font-size: 0.42em;
+                        letter-spacing: 0.16em;
+                        text-transform: uppercase;
+                        color: var(--orz-nyml-accent-color, var(--accent));
+                        margin-bottom: 8px;
+                    }
+
+                    [data-orz-slide-scope="slide-27"] .demo-card {
+                        height: 100%;
+                        border-radius: 14px;
+                        padding: 18px 20px;
+                        background: rgba(255, 255, 255, 0.8);
+                        box-shadow: 0 18px 30px rgba(18, 32, 46, 0.08);
+                    }
+
+                    [data-orz-slide-scope="slide-27"] .demo-card strong {
+                        color: var(--accent);
+                    }
+                </style>
+                <div class="orz-slide-wrap spotlight-card warm-accent" data-orz-slide-scope="slide-27"
+                    data-orz-eyebrow="Scoped slide styling" data-orz-accent-color="#c9a84c"
+                    style="--orz-nyml-eyebrow:Scoped slide styling;--orz-nyml-accent-color:#c9a84c">
+                    <div class="orz-header">
+                        <h2>Custom Class And Inline CSS</h2>
+                    </div>
+                    <div class="orz-body orz-body-cols">
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <div class="demo-card">
+                                <h3 class="heading-plain text-accent">Add slide classes</h3>
+                                <p>Use <code>class</code> or <code>slideClass</code> in the NYML block to add custom
+                                    selectors to the slide root.</p>
+                                <p>This slide adds <strong>spotlight-card</strong> and <strong>warm-accent</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="orz-col" style="--orz-frac:0.5" data-orz-label="col 50%">
+                            <div class="demo-card">
+                                <h3 class="heading-plain text-accent">Add inline CSS</h3>
+                                <p>Use <code>css: |</code> for slide-local CSS.</p>
+                                <p>Target the slide root with <code>:slide</code> and read arbitrary NYML fields through
+                                    <code>data-orz-*</code> or <code>--orz-nyml-*</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">This example shows custom slide root classes and an inline NYML CSS block.</aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════════════
+         SLIDE 29 — Closing Title (split template + inline CSS)
+         ══════════════════════════════════════════════════════════════════ -->
+            <script type="text/orz-slide" data-index="28">
+# Thank You
+
+## Questions &amp; Discussion
+
+{{nyml
+template: split
+author: Template Author
+affiliation: Example University
+date: 2026-04-20
+class: outro-sheen
+closing_note: Replace this panel with a logo, QR code, or final message.
+css: |
+    :slide {
+        background: linear-gradient(135deg, rgba(18, 32, 46, 0.06), rgba(201, 168, 76, 0.10));
+    }
+
+    :slide .orz-title-split-aside {
+        background:
+            linear-gradient(160deg, rgba(18, 32, 46, 0.96), rgba(38, 66, 94, 0.88)),
+            radial-gradient(circle at top, rgba(201, 168, 76, 0.34), transparent 45%);
+    }
+
+    :slide .orz-title-split-aside::after {
+        content: attr(data-orz-closing-note);
+        display: block;
+        max-width: 18ch;
+        font-size: 0.8em;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.82);
+        text-align: center;
+        margin-top: 18px;
+    }
+}}
+</script>
+            <section>
+                <style data-orz-local-css="css: |">
+                    [data-orz-slide-scope="slide-28"] {
+                        background: linear-gradient(135deg, rgba(18, 32, 46, 0.06), rgba(201, 168, 76, 0.10));
+                    }
+
+                    [data-orz-slide-scope="slide-28"] .orz-title-split-aside {
+                        background:
+                            linear-gradient(160deg, rgba(18, 32, 46, 0.96), rgba(38, 66, 94, 0.88)),
+                            radial-gradient(circle at top, rgba(201, 168, 76, 0.34), transparent 45%);
+                    }
+
+                    [data-orz-slide-scope="slide-28"] .orz-title-split-aside::after {
+                        content: attr(data-orz-closing-note);
+                        display: block;
+                        max-width: 18ch;
+                        font-size: 0.8em;
+                        line-height: 1.5;
+                        color: rgba(255, 255, 255, 0.82);
+                        text-align: center;
+                        margin-top: 18px;
+                    }
+                </style>
+                <div class="orz-title-slide tpl-split outro-sheen" data-orz-slide-scope="slide-28"
+                    data-orz-closing-note="Replace this panel with a logo, QR code, or final message."
+                    style="--orz-nyml-closing-note:Replace this panel with a logo, QR code, or final message.">
+                    <div class="orz-title-main">
+                        <h1 class="title-heading">Thank You</h1>
+                        <p class="title-subtitle">Questions &amp; Discussion</p>
+                        <div class="orz-title-meta">
+                            <p class="title-author">Template Author &nbsp;·&nbsp; Example University &nbsp;·&nbsp;
+                                2026-04-20</p>
+                        </div>
+                    </div>
+                    <div class="orz-title-split-aside">
+                        <p
+                            style="color:#fff; font-size:1.4em; font-weight:600; text-align:center; line-height:1.6; margin:0; opacity:0.92;">
+                            Replace this aside with a figure, logo, or decorative element.
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">Closing slide. Replace with your actual closing message, contact details, or a
+                    summary of key takeaways.</aside>
+            </section>
+
+        </div><!-- /.slides -->
+    </div><!-- /.reveal -->
+
+    <!-- ═══ LIBRARY SCRIPTS ══════════════════════════════════════════════════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/smiles-drawer@1.0.10/dist/smiles-drawer.min.js"></script>
+
+    <script>
+        // ── Helpers ──────────────────────────────────────────────────────────────
+        function whenReady(test, callback, tries) {
+            if ((tries = tries || 0) > 80) return;
+            if (test()) { callback(); return; }
+            setTimeout(function () { whenReady(test, callback, tries + 1); }, 100);
+        }
+
+        // ── Reveal.js initialization ─────────────────────────────────────────────
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'slide',
+            center: false,
+            width: 1600,
+            height: 900,
+            margin: 0.04,
+            plugins: [RevealHighlight, RevealNotes]
+        });
+
+        // ── Highlight.js theme coordination ─────────────────────────────────────
+        (function () {
+            var themeLink = document.getElementById('presentation-theme');
+            var hljsLink = document.getElementById('hljs-theme');
+            var DARK = ['neon', 'chalk'];
+            var BASE = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/';
+            function currentThemeName() {
+                if (!themeLink) return '';
+                var dataTheme = themeLink.getAttribute('data-theme') || '';
+                if (dataTheme) return dataTheme.toLowerCase();
+                var href = themeLink.getAttribute('href') || '';
+                var m = /theme-([a-z0-9-]+)\.css/i.exec(href);
+                return m ? m[1].toLowerCase() : '';
+            }
+            function syncHljs() {
+                var name = currentThemeName();
+                var dark = DARK.some(function (t) { return t === name; });
+                hljsLink.href = BASE + (dark ? 'atom-one-dark.min.css' : 'github.min.css');
+            }
+            syncHljs();
+            if (themeLink && themeLink.tagName === 'LINK') { themeLink.addEventListener('load', syncHljs); }
+        })();
+
+        // ── Per-slide content auto-scaling ───────────────────────────────────────
+        (function () {
+            var MARGIN = 0.03;
+            function scaleSlide(slide) {
+                if (!slide) return;
+                var dh = Reveal.getConfig().height;
+                slide.style.transform = '';
+                slide.style.transformOrigin = '';
+                var ph = slide.style.height, pm = slide.style.maxHeight, po = slide.style.overflow;
+                slide.style.height = 'auto'; slide.style.maxHeight = 'none'; slide.style.overflow = 'visible';
+                var nh = slide.scrollHeight;
+                slide.style.height = ph; slide.style.maxHeight = pm; slide.style.overflow = po;
+                if (nh > dh * (1 + MARGIN)) {
+                    var scale = (dh / nh) * (1 - MARGIN);
+                    slide.style.transform = 'scale(' + scale + ')';
+                    slide.style.transformOrigin = 'top center';
+                }
+            }
+            function sched(slide) {
+                requestAnimationFrame(function () { scaleSlide(slide); });
+                setTimeout(function () { scaleSlide(slide); }, 200);
+                setTimeout(function () { scaleSlide(slide); }, 700);
+            }
+            Reveal.on('ready', function () { sched(Reveal.getCurrentSlide()); });
+            Reveal.on('slidechanged', function (e) { sched(e.currentSlide); });
+            var tl = document.getElementById('presentation-theme');
+            if (tl) tl.addEventListener('load', function () { sched(Reveal.getCurrentSlide()); });
+            window.addEventListener('resize', function () {
+                setTimeout(function () { scaleSlide(Reveal.getCurrentSlide()); }, 100);
+            });
+        })();
+
+        // ── KaTeX auto-render ────────────────────────────────────────────────────
+        (function () {
+            function renderMath(el) {
+                if (!el || el.getAttribute('data-math-done') === '1') return;
+                if (typeof renderMathInElement !== 'function') return;
+                renderMathInElement(el, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                    throwOnError: false
+                });
+                el.setAttribute('data-math-done', '1');
+            }
+            whenReady(
+                function () { return typeof Reveal !== 'undefined' && Reveal.isReady() && typeof renderMathInElement === 'function'; },
+                function () {
+                    document.querySelectorAll('.reveal .slides section').forEach(renderMath);
+                    Reveal.on('slidechanged', function (e) { renderMath(e.currentSlide); });
+                }
+            );
+        })();
+
+        // ── SmilesDrawer ─────────────────────────────────────────────────────────
+        (function () {
+            var opts = {
+                bondThickness: 0.9, fontSizeLarge: 11, fontSizeSmall: 3,
+                padding: 16, terminalCarbons: true,
+                themes: {
+                    light: { C: '#222', O: '#c0392b', N: '#2980b9', F: '#27ae60', CL: '#16a085', BR: '#d35400', I: '#8e44ad', S: '#f39c12', P: '#27ae60', H: '#666' },
+                    dark: { C: '#eee', O: '#e74c3c', N: '#3498db', F: '#2ecc71', CL: '#1abc9c', BR: '#e67e22', I: '#9b59b6', S: '#f1c40f', P: '#2ecc71', H: '#aaa' }
+                }
+            };
+            function isDark(el) {
+                var node = el;
+                while (node && node !== document.documentElement) {
+                    var bg = window.getComputedStyle(node).backgroundColor;
+                    var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+                    if (m && bg !== 'rgba(0, 0, 0, 0)') {
+                        var L = (0.2126 * m[1] + 0.7152 * m[2] + 0.0722 * m[3]) / 255;
+                        return L < 0.45;
+                    }
+                    node = node.parentElement;
+                }
+                return false;
+            }
+            function renderSmiles(container) {
+                if (typeof SmilesDrawer === 'undefined' || !SmilesDrawer.Drawer || !SmilesDrawer.parse) return;
+                Array.prototype.slice.call((container || document).querySelectorAll('canvas[data-smiles]')).forEach(function (canvas, i) {
+                    var smiles = canvas.getAttribute('data-smiles');
+                    if (!smiles) return;
+                    var freshCanvas = canvas.cloneNode(false);
+                    freshCanvas.width = canvas.width || parseInt(canvas.getAttribute('width')) || 220;
+                    freshCanvas.height = canvas.height || parseInt(canvas.getAttribute('height')) || 220;
+                    if (canvas.id) {
+                        freshCanvas.id = canvas.id;
+                    } else {
+                        freshCanvas.id = 'smiles-canvas-' + i;
+                    }
+                    freshCanvas.setAttribute('data-smiles', smiles);
+                    var theme = canvas.getAttribute('data-smiles-theme') || (isDark(canvas) ? 'dark' : 'light');
+                    if (canvas.getAttribute('data-smiles-theme')) {
+                        freshCanvas.setAttribute('data-smiles-theme', canvas.getAttribute('data-smiles-theme'));
+                    }
+                    canvas.replaceWith(freshCanvas);
+                    var drawer = new SmilesDrawer.Drawer({ width: freshCanvas.width, height: freshCanvas.height });
+                    SmilesDrawer.parse(smiles, function (tree) {
+                        if (!freshCanvas.isConnected) return;
+                        drawer.draw(tree, freshCanvas, theme, false);
+                        freshCanvas.setAttribute('data-smiles-done', theme);
+                    }, function (err) {
+                        console.warn('SMILES:', err);
+                    });
+                });
+            }
+            whenReady(
+                function () {
+                    return typeof Reveal !== 'undefined'
+                        && Reveal.isReady()
+                        && typeof window.SmilesDrawer !== 'undefined';
+                },
+                function () {
+                    renderSmiles(Reveal.getCurrentSlide());
+                    Reveal.on('slidechanged', function (e) { renderSmiles(e.currentSlide); });
+                    var tl = document.getElementById('presentation-theme');
+                    if (tl && tl.tagName === 'LINK') {
+                        tl.addEventListener('load', function () { renderSmiles(Reveal.getCurrentSlide()); });
+                    }
+                }
+            );
+        })();
+
+        // ── Mermaid ──────────────────────────────────────────────────────────────
+        (function () {
+            if (typeof mermaid === 'undefined') return;
+            function fitMermaid(container) {
+                (container || document).querySelectorAll('.mermaid svg').forEach(function (svg) {
+                    svg.style.display = 'block';
+                    svg.style.marginLeft = 'auto';
+                    svg.style.marginRight = 'auto';
+                    svg.style.width = '100%';
+                    svg.style.maxWidth = '100%';
+                    svg.style.height = 'auto';
+                    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                });
+            }
+            mermaid.initialize({
+                startOnLoad: false, theme: 'neutral', securityLevel: 'loose',
+                flowchart: { useMaxWidth: true, htmlLabels: true },
+                sequence: { useMaxWidth: true },
+            });
+            function renderMermaid(slide) {
+                var nodes = (slide || document).querySelectorAll('.mermaid:not([data-processed])');
+                if (nodes.length) {
+                    Promise.resolve(mermaid.run({ nodes: Array.from(nodes) })).then(function () {
+                        fitMermaid(slide || document);
+                    });
+                } else {
+                    fitMermaid(slide || document);
+                }
+            }
+            Reveal.on('ready', function () { renderMermaid(Reveal.getCurrentSlide()); });
+            Reveal.on('slidechanged', function (e) { renderMermaid(e.currentSlide); });
+        })();
+
+        // ── Tab switcher ─────────────────────────────────────────────────────────
+        function slugTabKey(label, index) {
+            var base = String(label || ('tab-' + (index + 1))).toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            return base || ('tab-' + (index + 1));
+        }
+
+        function getTabPanels(tabsEl) {
+            var directTabs = Array.from(tabsEl.children).filter(function (child) {
+                return child.classList && child.classList.contains('tab');
+            });
+            if (directTabs.length) {
+                return directTabs;
+            }
+            return Array.from(tabsEl.children).flatMap(function (child) {
+                if (!child.classList || !child.classList.contains('markdown-body')) {
+                    return [];
+                }
+                return Array.from(child.children).filter(function (grandChild) {
+                    return grandChild.classList && grandChild.classList.contains('tab');
+                });
+            });
+        }
+
+        function activateTab(tabsEl, key) {
+            var panels = getTabPanels(tabsEl);
+            var buttons = Array.from(tabsEl.querySelectorAll(':scope > .tabs-bar .tabs-bar-btn'));
+            if (!panels.length || !buttons.length) return;
+
+            var targetKey = key;
+            var hasMatch = panels.some(function (panel) {
+                return panel.getAttribute('data-tab-key') === targetKey;
+            });
+            if (!hasMatch) {
+                targetKey = panels[0].getAttribute('data-tab-key') || '';
+            }
+
+            buttons.forEach(function (button) {
+                button.classList.toggle('active', button.getAttribute('data-tab-key') === targetKey);
+            });
+            panels.forEach(function (panel) {
+                panel.classList.toggle('active', panel.getAttribute('data-tab-key') === targetKey);
+            });
+        }
+
+        // ── Tab initialization ────────────────────────────────────────────────────
+        (function () {
+            function initTabs(container) {
+                (container || document).querySelectorAll('.tabs').forEach(function (tabsEl) {
+                    var tabs = getTabPanels(tabsEl);
+                    if (!tabs.length) return;
+
+                    var bar = tabsEl.querySelector(':scope > .tabs-bar');
+                    if (!bar) {
+                        bar = document.createElement('div');
+                        bar.className = 'tabs-bar';
+                        tabsEl.insertBefore(bar, tabsEl.firstChild);
+                    }
+
+                    var existingButtons = Array.from(bar.querySelectorAll(':scope > .tabs-bar-btn'));
+                    var shouldRebuildButtons = existingButtons.length !== tabs.length;
+
+                    tabs.forEach(function (tab, i) {
+                        var label = tab.getAttribute('data-label') || ('Tab ' + (i + 1));
+                        var existingKey = tab.getAttribute('data-tab-key') || (tab.id || '').replace(/^tab-/, '');
+                        var key = existingKey || slugTabKey(label, i);
+                        tab.setAttribute('data-tab-key', key);
+                        if (!tab.id) {
+                            tab.id = 'tab-' + key;
+                        }
+                    });
+
+                    if (shouldRebuildButtons) {
+                        bar.innerHTML = '';
+                        tabs.forEach(function (tab, i) {
+                            var button = document.createElement('button');
+                            button.type = 'button';
+                            button.className = 'tabs-bar-btn';
+                            button.textContent = tab.getAttribute('data-label') || ('Tab ' + (i + 1));
+                            button.setAttribute('data-tab-key', tab.getAttribute('data-tab-key') || '');
+                            bar.appendChild(button);
+                        });
+                        existingButtons = Array.from(bar.querySelectorAll(':scope > .tabs-bar-btn'));
+                    } else {
+                        existingButtons.forEach(function (button, i) {
+                            var tab = tabs[i];
+                            button.type = 'button';
+                            button.setAttribute('data-tab-key', tab.getAttribute('data-tab-key') || '');
+                            if (!button.textContent || !button.textContent.trim()) {
+                                button.textContent = tab.getAttribute('data-label') || ('Tab ' + (i + 1));
+                            }
+                        });
+                    }
+
+                    tabsEl.setAttribute('data-js', '1');
+                    var activeTab = tabs.find(function (tab) { return tab.classList.contains('active'); }) || tabs[0];
+                    activateTab(tabsEl, activeTab.getAttribute('data-tab-key') || '');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var btn = e.target.closest && e.target.closest('.tabs-bar-btn');
+                if (!btn) return;
+                var tabs = btn.closest('.tabs');
+                if (!tabs) return;
+                var key = btn.getAttribute('data-tab-key') || '';
+                if (!key) {
+                    var m = (btn.getAttribute('onclick') || '').match(/switchTab\s*\(this\s*,\s*['"]([^'"]+)['"]\)/);
+                    key = m ? m[1] : '';
+                }
+                activateTab(tabs, key);
+            });
+
+            Reveal.on('ready', function () { initTabs(document); });
+            Reveal.on('slidechanged', function (e) { initTabs(e.currentSlide); });
+        })();
+
+        // ── QR code click to fullscreen ──────────────────────────────────────────
+        (function () {
+            var overlay = document.createElement('div');
+            overlay.id = 'qr-overlay';
+            overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:pointer;';
+            overlay.onclick = function () { overlay.style.display = 'none'; };
+            document.body.appendChild(overlay);
+            document.addEventListener('click', function (e) {
+                var qr = e.target.closest('span.qrcode');
+                if (!qr) return;
+                var graphic = qr.querySelector('svg, canvas, img');
+                if (!graphic) return;
+                var clone = graphic.cloneNode(true);
+                clone.style.cssText = 'width:min(80vw,80vh);height:min(80vw,80vh);background:#fff;padding:12px;border-radius:4px;display:block;';
+                overlay.innerHTML = '';
+                overlay.appendChild(clone);
+                overlay.style.display = 'flex';
+            });
+        })();
+    </script>
+</body>
+
+</html>

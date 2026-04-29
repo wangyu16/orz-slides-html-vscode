@@ -1,0 +1,11 @@
+.vscode/**
+.plan/**
+node_modules/**
+src/**
+out/webview/panel.js.map
+out/extension.js.map
+tsconfig.json
+esbuild.mjs
+**/*.ts
+**/*.map
+.gitignore

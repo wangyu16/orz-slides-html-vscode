@@ -1,0 +1,110 @@
+/* ==========================================================
+   THEME: Paper  ·  Book-like, typographic, warm
+   Personality: traditional, sophisticated, readable, literary
+   Font: EB Garamond (authentic old-style serif)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
+
+:root {
+    --accent:                  #8d6e63;
+    --ink:                     #3e2723;
+    --border-radius:           2px;
+
+    --font-heading:            'EB Garamond', serif;
+    --font-body:               'EB Garamond', serif;
+
+    --heading-color:           #3e2723;
+    --heading-bg:              transparent;
+    --heading-shadow:          none;
+    --heading-letter-spacing:  0.02em;
+
+    --box-border-radius:       2px;
+    --box-border-width:        3px;
+    --box-shadow:              2px 3px 0px rgba(62, 39, 35, 0.1);
+
+    --box-info-bg:             #e1f5fe;
+    --box-info-border:         #0288d1;
+    --box-warning-bg:          #fff9c4;
+    --box-warning-border:      #fbc02d;
+    --box-danger-bg:           #ffcdd2;
+    --box-danger-border:       #d32f2f;
+    --box-success-bg:          #dcedc8;
+    --box-success-border:      #689f38;
+
+    --table-header-bg:         #efebe9;
+    --table-header-border:     #bcaaa4;
+
+    --outline-highlight-color: #3e2723;
+    --outline-highlight-bg:    #ffcc80;
+
+    --cite-color:              #9e8872;
+
+    --span-red:                #c62828;
+    --span-yellow:             #8d6e00;
+    --span-green:              #2e7d32;
+    --span-blue:               #1565c0;
+}
+
+body {
+    background-color: #fcfbf7;
+    color: var(--ink);
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+    border-bottom: 3px double var(--accent);
+    padding-bottom: 10px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.8em; border-bottom-width: 2px; }
+.reveal h3 { font-size: 1.1em; border-bottom: 1px solid var(--accent); }
+
+.reveal section p, .reveal section li {
+    font-size: 0.95em;
+    line-height: 1.4;
+    margin-bottom: 0.3em;
+}
+
+.reveal ul ul, .reveal ol ol {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.box-info, .box-warning, .box-danger, .box-success { padding: 0.8em; }
+
+.text-highlight {
+    background: linear-gradient(100deg, rgba(255,235,59,0.7) 0%, rgba(255,235,59,0.3) 100%);
+    border-radius: 8px 2px 8px 3px;
+    padding: 0 5px;
+}
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:          var(--ink);
+    border-top:     4px double var(--accent);
+    border-bottom:  4px double var(--accent);
+    border-left:    none;
+    border-right:   none;
+    padding:        18px 30px;
+    background:     #f5ede9;
+    box-shadow:     none;
+    letter-spacing: 0.04em;
+    width:          90%;
+    margin-left:    5%;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide {
+    background: #fcfbf7;
+}
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: var(--accent);
+    color: #fff;
+}
+.reveal .orz-section-slide .orz-section-stripe {
+    background: var(--accent);
+}

@@ -1,0 +1,131 @@
+/* ==========================================================
+   THEME: Architect  ·  Blueprint / technical drawing style
+   Personality: precise, structural, grid-based, monochromatic
+   Font: Source Code Pro (technical monospace)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    --accent:                  #2c3e50;
+    --ink:                     #2c3e50;
+    --border-radius:           0px;
+
+    --font-heading:            'Source Code Pro', monospace;
+    --font-body:               'Source Code Pro', monospace;
+
+    --heading-color:           #2c3e50;
+    --heading-bg:              transparent;
+    --heading-shadow:          none;
+    --heading-letter-spacing:  -0.03em;
+
+    --box-border-radius:       0px;
+    --box-border-width:        2px;
+    --box-shadow:              4px 4px 0px rgba(44, 62, 80, 0.15);
+
+    --box-info-bg:             #ffffff;
+    --box-info-border:         #3498db;
+    --box-warning-bg:          #ffffff;
+    --box-warning-border:      #f1c40f;
+    --box-danger-bg:           #ffffff;
+    --box-danger-border:       #e74c3c;
+    --box-success-bg:          #ffffff;
+    --box-success-border:      #2ecc71;
+
+    --table-header-bg:         #ecf0f1;
+    --table-header-border:     #bdc3c7;
+
+    --outline-highlight-color: #e74c3c;
+    --outline-highlight-bg:    #ffffff;
+
+    --cite-color:              #7d8f9a;
+
+    --span-red:                #c0392b;
+    --span-yellow:             #8a6d00;
+    --span-green:              #1e7a34;
+    --span-blue:               #1a5276;
+}
+
+body {
+    background-color: #fcfcfc;
+    background-image:
+        linear-gradient(#e5e5e5 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #2c3e50;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+    border: 2px solid var(--accent);
+    border-left-width: 10px;
+    padding: 10px 20px;
+    text-align: left;
+    background: #fff;
+}
+.reveal h1::before {
+    content: "FIG 1.0 // ";
+    opacity: 0.4;
+    font-size: 0.6em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.box-info, .box-warning, .box-danger, .box-success {
+    position: relative;
+    margin-top: 35px;
+    background: #fff;
+    border-radius: 0;
+}
+.box-info::before, .box-warning::before, .box-danger::before, .box-success::before {
+    position: absolute;
+    top: -24px; left: -2px;
+    padding: 2px 8px;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.box-info::before    { content: "INFO_SPEC"; background: var(--box-info-border);    color: #fff; }
+.box-warning::before { content: "WARNING";   background: var(--box-warning-border); color: #5c3d00; }
+.box-danger::before  { content: "CRITICAL";  background: var(--box-danger-border);  color: #fff; }
+.box-success::before { content: "RESULT";    background: var(--box-success-border); color: #0a3d1a; }
+
+.outline-highlight {
+    background: transparent;
+    border: 2px solid var(--outline-highlight-color);
+    color: var(--outline-highlight-color);
+    padding: 2px 10px;
+}
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:        var(--accent);
+    border:       3px double var(--accent);
+    padding:      20px 30px;
+    background:   rgba(255, 255, 255, 0.95);
+    box-shadow:   none;
+    position:     relative;
+    width:        auto;
+    text-align:   left;
+    margin-left:  0;
+    margin-right: 0;
+}
+.reveal .title-heading::before {
+    content:        "PRESENTATION TITLE";
+    position:       absolute;
+    top:            -12px; left: 20px;
+    background:     #fcfcfc;
+    padding:        0 8px;
+    font-size:      0.42em;
+    font-weight:    700;
+    letter-spacing: 0.12em;
+    color:          #6a7d8d;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide { background: #fcfcfc; }
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: var(--accent);
+    color: #fff;
+}
+.reveal .orz-section-slide .orz-section-stripe { background: var(--accent); }

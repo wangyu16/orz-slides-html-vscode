@@ -1,0 +1,172 @@
+/* ==========================================================
+   THEME: Chalk  ·  Dark blackboard green, warm chalk white
+   Personality: academic, handwritten, warm, approachable
+   Font: Caveat (handwritten, chalk-like)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
+:root {
+    --accent:                  #ffd663;
+    --ink:                     #f2ede2;
+    --border-radius:           2px;
+
+    --font-heading:            'Caveat', cursive;
+    --font-body:               'Caveat', cursive;
+
+    --r-background-color:      #1a2420;
+    --r-main-color:            #f2ede2;
+    --r-heading-color:         #ffd663;
+    --r-link-color:            #8ecae6;
+
+    --heading-color:           #ffd663;
+    --heading-bg:              transparent;
+    --heading-shadow:          none;
+    --heading-letter-spacing:  0.02em;
+
+    --box-border-radius:       2px;
+    --box-shadow:              none;
+
+    --box-info-bg:             #1c2e30;
+    --box-info-border:         #8ecae6;
+    --box-warning-bg:          #2a2714;
+    --box-warning-border:      #ffd663;
+    --box-danger-bg:           #2a1c1e;
+    --box-danger-border:       #f4a4b0;
+    --box-success-bg:          #1c2a22;
+    --box-success-border:      #8ddbab;
+
+    --table-header-bg:         #1e2e24;
+    --table-header-border:     #ffd663;
+
+    --outline-highlight-color: #1a2420;
+    --outline-highlight-bg:    #ffd663;
+
+    --cite-color:              #b4c4b8;
+
+    --span-red:                #f4a4b0;
+    --span-yellow:             #ffd663;
+    --span-green:              #8ddbab;
+    --span-blue:               #8ecae6;
+    --inline-code-bg:          #12201a;
+    --inline-code-border:      rgba(255, 214, 99, 0.35);
+    --inline-code-color:       #8ddbab;
+    --tabs-inactive-bg:        #12201a;
+    --tabs-inactive-color:     #f2ede2;
+    --tabs-active-bg:          #ffd663;
+    --tabs-active-color:       #1a2420;
+}
+
+body, .reveal-viewport { background-color: #1a2420; }
+body { color: var(--ink); }
+
+.reveal, .reveal section, .reveal .slides section { color: var(--ink); }
+
+.reveal h1, .reveal h2, .reveal h3 {
+    background:    transparent;
+    border:        none;
+    border-bottom: 3px dashed rgba(255, 214, 99, 0.55);
+    border-radius: 0;
+    text-align:    left;
+    padding:       4px 0 10px 0;
+    font-weight:   700;
+    color:         #ffd663;
+    box-shadow:    none;
+    text-shadow:   1px 1px 0 rgba(26, 36, 32, 0.6);
+}
+.reveal h1 { font-size: 1.9em; border-bottom: 4px dashed rgba(255, 214, 99, 0.6); }
+
+.reveal .slide-number { color: #ffd663; background: transparent; }
+
+.box-info    { border-style: dashed; }
+.box-warning { border-style: dashed; }
+.box-danger  { border-style: dashed; }
+.box-success { border-style: dashed; }
+
+.reveal section p, .reveal section li { line-height: 1.6; margin-bottom: 0.4em; }
+.reveal section p, .reveal section li, .reveal section td { font-size: 1em; }
+
+.reveal code {
+    background: #12201a;
+    border: 1px dashed rgba(255, 214, 99, 0.35);
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-family: monospace;
+    font-size: 0.85em;
+    color: #8ddbab;
+}
+.reveal pre code { font-family: monospace; font-size: 0.82em; color: #f2ede2; }
+
+.reveal th {
+    background-color: var(--table-header-bg);
+    color: #ffd663;
+    border-bottom: 2px dashed var(--table-header-border);
+    letter-spacing: 0.03em;
+    font-weight: 700;
+}
+.reveal td { border-bottom: 1px dashed rgba(242, 237, 226, 0.2); color: var(--ink); }
+
+.reveal a { color: #8ecae6; text-decoration: none; border-bottom: 1px dashed rgba(142, 202, 230, 0.5); }
+.reveal a:hover { color: #b8dcf0; border-color: #b8dcf0; }
+
+.outline-highlight { background: var(--outline-highlight-bg); color: var(--outline-highlight-color); padding: 2px 10px; border-radius: 2px; text-shadow: none; }
+.outline-dim { color: #7a9080; }
+
+.reveal .cite { color: var(--cite-color); }
+
+.placeholder-img { border-color: rgba(255, 214, 99, 0.35); border-style: dashed; background: #12201a; color: var(--cite-color); }
+.text-highlight { background-color: rgba(255, 214, 99, 0.25); color: #f2ede2; padding: 2px 6px; border-radius: 1px; }
+
+.reveal .key-question {
+    border-left: none;
+    border: 2px dashed rgba(255, 214, 99, 0.55);
+    background: #1e2e24;
+    color: #ffd663;
+    text-shadow: 1px 1px 0 rgba(26, 36, 32, 0.5);
+    border-radius: 2px;
+}
+
+/* ---- Code blocks — dark background to match theme ---- */
+.reveal pre {
+    background: #0f1c14;
+    border: 1px dashed rgba(255, 214, 99, 0.35);
+    border-radius: 2px;
+}
+.reveal pre code {
+    background: transparent;
+    border: none;
+    color: #f2ede2;
+}
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:          #f2ede2;
+    background:     transparent;
+    border:         none;
+    border-bottom:  4px dashed rgba(255, 214, 99, 0.6);
+    border-radius:  0;
+    padding:        0 0 14px 0;
+    box-shadow:     none;
+    letter-spacing: 0.04em;
+    text-shadow:    1px 1px 0 rgba(26, 36, 32, 0.6);
+    width:          100%;
+    margin-left:    0;
+    font-weight:    700;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide {
+    background: #1a2420;
+}
+.reveal .orz-title-slide .orz-title-meta {
+    border-top-color: rgba(255, 214, 99, 0.35);
+}
+.reveal .orz-title-slide .title-author { color: var(--cite-color); }
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: #12201a;
+    border-bottom: 3px dashed rgba(255, 214, 99, 0.5);
+    color: #ffd663;
+    text-shadow: 1px 1px 0 rgba(26, 36, 32, 0.6);
+}
+.reveal .orz-section-slide .orz-section-stripe { background: #ffd663; }

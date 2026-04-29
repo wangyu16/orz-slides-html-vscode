@@ -1,0 +1,109 @@
+/* ==========================================================
+   THEME: Sage  ·  Warm ivory, sage green, casual-professional
+   Personality: friendly, natural, approachable, warm
+   Font: Nunito Sans (humanist sans-serif with warmth)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    --accent:                  #5a7a5f;
+    --ink:                     #2d3a2e;
+    --border-radius:           8px;
+
+    --font-heading:            'Nunito Sans', 'Segoe UI', sans-serif;
+    --font-body:               'Nunito Sans', 'Segoe UI', sans-serif;
+
+    --heading-color:           #2d3a2e;
+    --heading-bg:              #eef4ef;
+    --heading-shadow:          none;
+    --heading-letter-spacing:  0.01em;
+
+    --box-border-radius:       8px;
+    --box-border-width:        4px;
+    --box-shadow:              0 2px 8px rgba(90, 122, 95, 0.12);
+
+    --box-info-bg:             #edf5ee;
+    --box-info-border:         #5a7a5f;
+    --box-warning-bg:          #fdf7ec;
+    --box-warning-border:      #c8a05a;
+    --box-danger-bg:           #fdf0ee;
+    --box-danger-border:       #c0614a;
+    --box-success-bg:          #ecf6ec;
+    --box-success-border:      #4a8c50;
+
+    --table-header-bg:         #dbe9dc;
+    --table-header-border:     #5a7a5f;
+
+    --outline-highlight-color: #2d3a2e;
+    --outline-highlight-bg:    #c8e6ca;
+
+    --cite-color:              #8a9b7a;
+
+    --span-red:                #c0614a;
+    --span-yellow:             #8a6d00;
+    --span-green:              #2e6b34;
+    --span-blue:               #2a5f8a;
+}
+
+body {
+    background-color: #f6f3ec;
+    color: var(--ink);
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+    text-align: left;
+    font-weight: 700;
+    border-left: 5px solid #5a7a5f;
+    border-radius: 0 6px 6px 0;
+    padding-left: 18px;
+    box-shadow: none;
+}
+
+.reveal section p, .reveal section li {
+    font-size: 0.92em;
+    line-height: 1.55;
+    margin-bottom: 0.35em;
+}
+
+.box-info, .box-warning, .box-danger, .box-success { border-radius: 8px; }
+
+.reveal code {
+    background: #ede9e0;
+    border: 1px solid #c5bfb4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.88em;
+    color: #2d3a2e;
+}
+
+.reveal th {
+    background-color: var(--table-header-bg);
+    color: var(--ink);
+    border-bottom: 2px solid var(--table-header-border);
+}
+.reveal td { border-bottom: 1px solid #d4cfc5; }
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:          var(--ink);
+    border:         none;
+    border-bottom:  3px solid var(--accent);
+    padding:        14px 0 14px 20px;
+    background:     #eef4ef;
+    box-shadow:     none;
+    border-radius:  0;
+    text-align:     left;
+    width:          100%;
+    margin-left:    0;
+    letter-spacing: 0.01em;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide { background: #f6f3ec; }
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: var(--accent);
+    color: #fff;
+}
+.reveal .orz-section-slide .orz-section-stripe { background: var(--accent); }

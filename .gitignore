@@ -1,0 +1,6 @@
+.plan/
+out/
+node_modules/
+*.vsix
+CLAUDE.md
+temp/

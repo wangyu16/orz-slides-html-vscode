@@ -1,0 +1,130 @@
+/* ==========================================================
+   THEME: Poppy  ·  Warm cream, coral red, playful energy
+   Personality: energetic, fun, creative, consumer-facing
+   Font: Nunito (rounded, bubbly sans-serif)
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --accent:                  #ff4848;
+    --ink:                     #2d1f1f;
+    --border-radius:           14px;
+
+    --font-heading:            'Nunito', 'Segoe UI', sans-serif;
+    --font-body:               'Nunito', 'Segoe UI', sans-serif;
+
+    --heading-color:           #ffffff;
+    --heading-bg:              linear-gradient(110deg, #ff4848 0%, #ff7e45 100%);
+    --heading-shadow:          0 4px 14px rgba(255, 100, 60, 0.30);
+    --heading-letter-spacing:  0.02em;
+
+    --box-border-radius:       12px;
+    --box-border-width:        0px;
+    --box-shadow:              0 4px 14px rgba(0, 0, 0, 0.10);
+
+    --box-info-bg:             #dceeff;
+    --box-info-border:         #2196f3;
+    --box-warning-bg:          #fff3cd;
+    --box-warning-border:      #ffb300;
+    --box-danger-bg:           #ffe0e0;
+    --box-danger-border:       #ff4848;
+    --box-success-bg:          #d6f5e3;
+    --box-success-border:      #2ecc71;
+
+    --table-header-bg:         #ff4848;
+    --table-header-border:     #ff4848;
+
+    --outline-highlight-color: #ff4848;
+    --outline-highlight-bg:    #ffe5e5;
+
+    --cite-color:              #b8908a;
+
+    --span-red:                #e02020;
+    --span-yellow:             #cc7700;
+    --span-green:              #1d8a48;
+    --span-blue:               #1565c0;
+}
+
+body {
+    background-color: #fffbf5;
+    color: var(--ink);
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+    text-align: center;
+    font-weight: 800;
+    border-radius: 14px;
+}
+
+.reveal section p, .reveal section li {
+    font-size: 0.93em;
+    line-height: 1.55;
+    margin-bottom: 0.4em;
+}
+
+.box-info, .box-warning, .box-danger, .box-success {
+    border: none;
+    border-radius: 12px;
+    padding: 16px 18px;
+}
+.box-info    { background: var(--box-info-bg); }
+.box-warning { background: var(--box-warning-bg); }
+.box-danger  { background: var(--box-danger-bg); }
+.box-success { background: var(--box-success-bg); }
+
+.reveal code {
+    background: #ffe8e8;
+    border: none;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    color: #c0392b;
+    font-weight: 600;
+}
+
+.reveal th {
+    background-color: var(--table-header-bg);
+    color: #ffffff;
+    border-bottom: none;
+    font-weight: 700;
+}
+.reveal td { border-bottom: 1px solid #f5e4dc; }
+
+.reveal a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.reveal .key-question {
+    border-left: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffe0e0 0%, #fff3cd 100%);
+    color: var(--ink);
+    box-shadow: 0 4px 14px rgba(255, 72, 72, 0.15);
+}
+
+/* ---- Title heading ---- */
+.reveal .title-heading {
+    color:          #ffffff;
+    background:     var(--accent);
+    border:         none;
+    padding:        22px 36px;
+    box-shadow:     0 6px 20px rgba(255, 72, 72, 0.4);
+    border-radius:  14px;
+    text-align:     center;
+    letter-spacing: 0.02em;
+    font-weight:    800;
+    width:          90%;
+    margin-left:    5%;
+}
+
+/* ---- Presentation title slide ---- */
+.reveal .orz-title-slide { background: #fffbf5; }
+
+/* ---- Section title slide ---- */
+.reveal .orz-section-slide .orz-section-band {
+    background: var(--accent);
+    color: #fff;
+}
+.reveal .orz-section-slide .orz-section-stripe { background: var(--accent); }

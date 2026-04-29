@@ -1,0 +1,60 @@
+{
+  "name": "orz-slides",
+  "displayName": "ORZ Slides",
+  "description": "Visual editor for .slides.html presentation files (reveal.js + orz-markdown)",
+  "version": "1.0.0",
+  "publisher": "yuwang26",
+  "author": {
+    "name": "Yu Wang",
+    "email": "yuwang@orz.how"
+  },
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangyu16/orz-slides-html-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "extensionDependencies": [
+    "yuwang26.orz-md-preview"
+  ],
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "orz-slides.editor",
+        "displayName": "Slides Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.slides.html"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "orz-slides.openInBrowser",
+        "title": "Open in Browser",
+        "category": "ORZ Slides"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "package": "vsce package",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  }
+}
