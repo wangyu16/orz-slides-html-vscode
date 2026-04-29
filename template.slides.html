@@ -1008,7 +1008,7 @@
         /* ══════════════════════════════════════════════════════════════════════
    LAYOUT PLACEHOLDER VISIBILITY
    Dashed outlines + type labels are hidden by default (output mode).
-   They only appear when a parent element has class="orz-show-frames"
+   They only appear when a parent element has
    (added by the extension preview when the Frames toggle is ON).
    ══════════════════════════════════════════════════════════════════════ */
         .orz-col,
@@ -1260,15 +1260,20 @@
 
             <!-- ═══ DECK SETTINGS & META ════════════════════════════════════════ -->
             <script type="text/orz-settings">
-{ "theme": "executive", "aspectRatio": "16:9", "transition": "slide" }
+{
+  "theme": "executive",
+  "aspectRatio": "16:9",
+  "transition": "slide"
+}
 </script>
             <script type="text/orz-meta">
-{ "author": "Template Author", "affiliation": "Example University", "date": "2026-04-20" }
+{
+  "author": "Template Author",
+  "affiliation": "Example University",
+  "date": "2026-04-20"
+}
 </script>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 1 — Presentation Title (centered template)
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="0">
 # ORZ Slides
 
@@ -1296,9 +1301,6 @@ date: 2026-04-20
                     content. Delete this slide if not needed.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 2 — Template Overview
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="1">
 ## What This Template Covers
 
@@ -1331,15 +1333,12 @@ date: 2026-04-20
                     mode.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 3 — Section: Part I Text & Markdown
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="2">
 # Part I: Text &amp; Markdown
 
 Standard CommonMark plus orz-markdown extensions.
 </script>
-            <section class="orz-section-slide tpl-accent-band">
+            <section>
                 <div class="orz-section-band">
                     <h1>Part I: Text &amp; Markdown</h1>
                 </div>
@@ -1349,9 +1348,6 @@ Standard CommonMark plus orz-markdown extensions.
                 <aside class="notes">Part I covers all text formatting and standard markdown features.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 4 — Text Formatting
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="3">
 ## Text Formatting
 
@@ -1398,9 +1394,6 @@ Subscript H~2~O · Superscript E = mc^2^
                 <aside class="notes">Demonstrates all inline formatting available in orz-markdown.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 5 — Lists
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="4">
 ## Lists
 
@@ -1474,9 +1467,6 @@ Subscript H~2~O · Superscript E = mc^2^
                 <aside class="notes">Three column layout showing unordered, ordered, and task lists.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 6 — Code
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="5">
 ## Code Blocks
 
@@ -1536,9 +1526,6 @@ print(greet("ORZ"))</code></pre>
                 <aside class="notes">Side-by-side code examples. Syntax highlighting via Highlight.js.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 7 — Tables
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="6">
 ## Tables
 
@@ -1602,9 +1589,6 @@ Rows can be highlighted with `.row-highlight` for emphasis.
                 <aside class="notes">Table with header styling and alternating row highlights.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 8 — Math & Chemistry
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="7">
 ## Math &amp; Chemistry
 
@@ -1657,15 +1641,12 @@ Hydration: $\ce{CuSO4 * 5H2O}$
                 <aside class="notes">KaTeX handles all math. mhchem extension adds chemical equation support.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 9 — Section: Part II Rich Media
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="8">
 # Part II: Rich Media
 
 Diagrams, chemical structures, QR codes, and more.
 </script>
-            <section class="orz-section-slide tpl-sidebar">
+            <section>
                 <div class="orz-section-stripe"></div>
                 <div class="orz-section-body">
                     <h1>Part II: Rich Media</h1>
@@ -1674,9 +1655,6 @@ Diagrams, chemical structures, QR codes, and more.
                 <aside class="notes">Part II covers rich media elements rendered client-side.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 10 — Mermaid Diagrams
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="9">
 ## Mermaid Diagrams
 
@@ -1742,9 +1720,6 @@ sequenceDiagram
                 <aside class="notes">Mermaid renders all diagram types client-side from plain text definitions.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 11 — Chemical Structures (SMILES)
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="10">
 ## Chemical Structures
 
@@ -1757,7 +1732,7 @@ sequenceDiagram
 **Benzene** $\ce{C6H6}$
 
 {{smiles C1=CC=CC=C1}}
-]]
+]] 
 [[col[0.34]
 **Aspirin** $\ce{C9H8O4}$
 
@@ -1765,34 +1740,421 @@ sequenceDiagram
 ]]
 </script>
             <section>
-                <div class="orz-slide-wrap">
+                <div class="orz-slide-wrap" data-orz-slide-scope="slide-10">
                     <div class="orz-header">
                         <h2>Chemical Structures</h2>
                     </div>
                     <div class="orz-body orz-body-cols">
                         <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
-                            <p><strong>Caffeine</strong> \(\ce{C8H10N4O2}\)</p>
-                            <svg data-smiles="CN1C=NC2=C1C(=O)N(C(=O)N2C)C" width="200" height="180"
-                                style="display:block;margin:auto;"></svg>
+                            <article class="markdown-body">
+                                <p><strong>Caffeine</strong> <span class="katex"><span class="katex-mathml"><math
+                                                xmlns="http://www.w3.org/1998/Math/MathML">
+                                                <semantics>
+                                                    <mrow>
+                                                        <mi mathvariant="normal">C</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>8</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">H</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>10</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">N</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>4</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">O</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>2</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                    </mrow>
+                                                    <annotation encoding="application/x-tex">\ce{C8H10N4O2}</annotation>
+                                                </semantics>
+                                            </math></span><span class="katex-html" aria-hidden="true"><span
+                                                class="base"><span class="strut"
+                                                    style="height:0.8333em;vertical-align:-0.15em;"></span><span
+                                                    class="mord"><span class="mord mathrm">C</span><span
+                                                        class="mord"><span class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">H</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">N</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">O</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
+                                </p>
+                                <div class="smiles-render">
+                                    <canvas data-smiles="CN1C=NC2=C1C(=O)N(C(=O)N2C)C" width="250"
+                                        height="180"></canvas>
+                                </div>
+                            </article>
                         </div>
                         <div class="orz-col" style="--orz-frac:0.33" data-orz-label="col 33%">
-                            <p><strong>Benzene</strong> \(\ce{C6H6}\)</p>
-                            <svg data-smiles="C1=CC=CC=C1" width="200" height="180"
-                                style="display:block;margin:auto;"></svg>
+                            <article class="markdown-body">
+                                <p><strong>Benzene</strong> <span class="katex"><span class="katex-mathml"><math
+                                                xmlns="http://www.w3.org/1998/Math/MathML">
+                                                <semantics>
+                                                    <mrow>
+                                                        <mi mathvariant="normal">C</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>6</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">H</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>6</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                    </mrow>
+                                                    <annotation encoding="application/x-tex">\ce{C6H6}</annotation>
+                                                </semantics>
+                                            </math></span><span class="katex-html" aria-hidden="true"><span
+                                                class="base"><span class="strut"
+                                                    style="height:0.8333em;vertical-align:-0.15em;"></span><span
+                                                    class="mord"><span class="mord mathrm">C</span><span
+                                                        class="mord"><span class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">H</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
+                                </p>
+                                <div class="smiles-render">
+                                    <canvas data-smiles="C1=CC=CC=C1" width="250" height="180"></canvas>
+                                </div>
+                            </article>
                         </div>
                         <div class="orz-col" style="--orz-frac:0.34" data-orz-label="col 34%">
-                            <p><strong>Aspirin</strong> \(\ce{C9H8O4}\)</p>
-                            <svg data-smiles="CC(=O)Oc1ccccc1C(=O)O" width="200" height="180"
-                                style="display:block;margin:auto;"></svg>
+                            <article class="markdown-body">
+                                <p><strong>Aspirin</strong> <span class="katex"><span class="katex-mathml"><math
+                                                xmlns="http://www.w3.org/1998/Math/MathML">
+                                                <semantics>
+                                                    <mrow>
+                                                        <mi mathvariant="normal">C</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>9</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">H</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>8</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                        <mi mathvariant="normal">O</mi>
+                                                        <msub>
+                                                            <mpadded width="0px">
+                                                                <mphantom>
+                                                                    <mi>X</mi>
+                                                                </mphantom>
+                                                            </mpadded>
+                                                            <mpadded height="0px">
+                                                                <mn>4</mn>
+                                                            </mpadded>
+                                                        </msub>
+                                                    </mrow>
+                                                    <annotation encoding="application/x-tex">\ce{C9H8O4}</annotation>
+                                                </semantics>
+                                            </math></span><span class="katex-html" aria-hidden="true"><span
+                                                class="base"><span class="strut"
+                                                    style="height:0.8333em;vertical-align:-0.15em;"></span><span
+                                                    class="mord"><span class="mord mathrm">C</span><span
+                                                        class="mord"><span class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">H</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                        class="mord mathrm">O</span><span class="mord"><span
+                                                            class="mord"><span class="mord rlap"><span
+                                                                    class="inner"><span class="mord"
+                                                                        style="color:transparent;"><span
+                                                                            class="mord mathnormal"
+                                                                            style="margin-right:0.0785em;color:transparent;">X</span></span></span><span
+                                                                    class="fix"></span></span></span><span
+                                                            class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:-0.15em;"><span
+                                                                            style="top:-2.55em;margin-right:0.05em;"><span
+                                                                                class="pstrut"
+                                                                                style="height:2.7em;"></span><span
+                                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                                    class="mord mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="vlist-t"><span
+                                                                                                class="vlist-r"><span
+                                                                                                    class="vlist"
+                                                                                                    style="height:0em;"><span
+                                                                                                        style="top:-2.7em;"><span
+                                                                                                            class="pstrut"
+                                                                                                            style="height:2.7em;"></span><span><span
+                                                                                                                class="mord mtight"><span
+                                                                                                                    class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span><span
+                                                                        class="vlist-s">​</span></span><span
+                                                                    class="vlist-r"><span class="vlist"
+                                                                        style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
+                                </p>
+                                <div class="smiles-render">
+                                    <canvas data-smiles="CC(=O)Oc1ccccc1C(=O)O" width="250" height="180"></canvas>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <aside class="notes">SmilesDrawer renders SMILES strings into SVG structures client-side.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 12 — QR Codes & Emoji
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="11">
 ## QR Codes, Emoji &amp; More
 
@@ -1853,15 +2215,12 @@ sequenceDiagram
                     responsive iframe wrapper.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 13 — Section: Part III Semantic Containers
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="12">
 # Part III: Semantic Containers
 
 Callout boxes, spoilers, tabs, and multi-column layouts.
 </script>
-            <section class="orz-section-slide tpl-accent-band">
+            <section>
                 <div class="orz-section-band">
                     <h1>Part III: Semantic Containers</h1>
                 </div>
@@ -1871,9 +2230,6 @@ Callout boxes, spoilers, tabs, and multi-column layouts.
                 <aside class="notes">Part III covers all container types from the orz-markdown ::: syntax.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 14 — Callout Boxes
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="13">
 ## Callout Boxes
 
@@ -1943,9 +2299,6 @@ Callout boxes, spoilers, tabs, and multi-column layouts.
                 </aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 15 — Spoilers & Tabs
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="14">
 ## Spoilers &amp; Tabs
 
@@ -2038,24 +2391,18 @@ fn hello() -> &'static str {
                 </aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 16 — Section: Part IV Layout System
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="15">
 # Part IV: Layout System
 
 Flexible containers using the [[ ]] syntax.
 </script>
-            <section class="orz-section-slide tpl-minimal">
+            <section>
                 <h1>Part IV: Layout System</h1>
                 <p style="color:inherit; opacity:0.8; margin-top:12px;">Flexible containers using the <code>[[ ]]</code>
                     syntax.</p>
                 <aside class="notes">Part IV demonstrates all layout container types.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 17 — Two Equal Columns
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="16">
 ## Two Equal Columns
 
@@ -2103,9 +2450,6 @@ Use `[[col[0.5] ... ]]` for each column.
                 <aside class="notes">Basic two-column layout. Both columns share equal width.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 18 — Asymmetric Columns: Image + Text
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="17">
 ## Asymmetric Columns — Image + Text
 
@@ -2155,9 +2499,6 @@ The narrower column is ideal for a figure, chart, or illustration. The wider col
                     would go.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 19 — Nested: Col → Rows
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="18">
 ## Nested Layout — Column Containing Rows
 
@@ -2206,9 +2547,6 @@ Second observation or supporting detail. Add more rows as needed.
                 </aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 20 — Row Stacking
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="19">
 ## Row Stacking
 
@@ -2266,9 +2604,6 @@ Avoid adding a parent-level heading or paragraph beside the child cols. Keep the
                     child containers, keep visible content inside those children rather than beside them.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 21 — Center Container
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="20">
 ## Center Container
 
@@ -2305,9 +2640,6 @@ A center container cannot have siblings — it is the sole child of its parent.
                     parent.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 22 — Float Container
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="21">
 ## Float Container
 
@@ -2358,9 +2690,6 @@ Replace with a callout, annotation, or caption.
                     Useful for annotations, callout arrows, or badges.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 23 — Footer
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="22">
 ## Footer Bar
 
@@ -2396,15 +2725,12 @@ Use the footer for:
                     citations.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 24 — Section: Part V Fragments & Notes
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="23">
 # Part V: Fragments &amp; Speaker Notes
 
 Step-by-step reveals and presenter annotations.
 </script>
-            <section class="orz-section-slide tpl-sidebar">
+            <section>
                 <div class="orz-section-stripe"></div>
                 <div class="orz-section-body">
                     <h1>Part V: Fragments &amp; Speaker Notes</h1>
@@ -2413,9 +2739,6 @@ Step-by-step reveals and presenter annotations.
                 <aside class="notes">Part V covers fragment animations and speaker notes.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 25 — Fragment Animations
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="24">
 ## Fragment Animations
 
@@ -2456,9 +2779,6 @@ Press → to advance through items below:
                 </aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 26 — Speaker Notes Demo
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="25">
 ## Speaker Notes
 
@@ -2509,9 +2829,6 @@ Speaker notes for this slide:
                     - Notes are stored as &lt;aside class="notes"&gt; in the rendered HTML</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-     SLIDE 27 — Theme Showcase
-     ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="26">
 ## Available Themes
 
@@ -2606,9 +2923,6 @@ Each theme file defines only CSS custom properties and decorative overrides — 
                     switch.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-         SLIDE 28 — Slide-Local CSS Example
-         ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="27">
 ## Custom Class And Inline CSS
 
@@ -2715,7 +3029,8 @@ Target the slide root with `:slide` and read arbitrary NYML fields through `data
                                 <h3 class="heading-plain text-accent">Add inline CSS</h3>
                                 <p>Use <code>css: |</code> for slide-local CSS.</p>
                                 <p>Target the slide root with <code>:slide</code> and read arbitrary NYML fields through
-                                    <code>data-orz-*</code> or <code>--orz-nyml-*</code>.</p>
+                                    <code>data-orz-*</code> or <code>--orz-nyml-*</code>.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -2723,9 +3038,6 @@ Target the slide root with `:slide` and read arbitrary NYML fields through `data
                 <aside class="notes">This example shows custom slide root classes and an inline NYML CSS block.</aside>
             </section>
 
-            <!-- ══════════════════════════════════════════════════════════════════
-         SLIDE 29 — Closing Title (split template + inline CSS)
-         ══════════════════════════════════════════════════════════════════ -->
             <script type="text/orz-slide" data-index="28">
 # Thank You
 
